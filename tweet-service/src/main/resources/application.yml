@@ -1,0 +1,20 @@
+# server properties
+server:
+  port: 8082
+
+# spring properties
+spring:
+  application:
+    name: TWEET-SERVICE
+#Eureka client
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    '[org.springframework.web]': ERROR
+    '[com.cts.processPension]': DEBUG
