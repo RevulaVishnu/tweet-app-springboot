@@ -1,0 +1,450 @@
+2022-08-12 01:25:22.131  INFO 940 --- [restartedMain] c.c.userservice.UserServiceApplication   : Starting UserServiceApplication using Java 11.0.12 on ctsjava724 with PID 940 (C:\Users\cogjava1728\IdeaProjects\tweet-app-springboot\user-service\target\classes started by cogjava1728 in C:\Users\cogjava1728\IdeaProjects\tweet-app-springboot)
+2022-08-12 01:25:22.137  INFO 940 --- [restartedMain] c.c.userservice.UserServiceApplication   : No active profile set, falling back to default profiles: default
+2022-08-12 01:25:22.195  INFO 940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-12 01:25:22.195  INFO 940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-12 01:25:23.861  INFO 940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-08-12 01:25:24.107  INFO 940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 239 ms. Found 1 MongoDB repository interfaces.
+2022-08-12 01:25:24.529  INFO 940 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=28568da3-2eb4-3b93-ad3d-1f7bd2f42424
+2022-08-12 01:25:24.746  INFO 940 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-12 01:25:24.749  INFO 940 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-12 01:25:24.751  INFO 940 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-12 01:25:25.438  INFO 940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2022-08-12 01:25:25.453  INFO 940 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-12 01:25:25.454  INFO 940 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-08-12 01:25:25.645  INFO 940 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-12 01:25:25.646  INFO 940 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3448 ms
+2022-08-12 01:25:26.014  INFO 940 --- [restartedMain] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-08-12 01:25:26.095  INFO 940 --- [cluster-rtt-ClusterId{value='62f55eaef5dcf543839c193b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:37}] to localhost:27017
+2022-08-12 01:25:26.095  INFO 940 --- [cluster-ClusterId{value='62f55eaef5dcf543839c193b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:38}] to localhost:27017
+2022-08-12 01:25:26.099  INFO 940 --- [cluster-ClusterId{value='62f55eaef5dcf543839c193b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=26387000}
+2022-08-12 01:25:26.152  WARN 940 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-08-12 01:25:26.246  INFO 940 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-08-12 01:25:26.304  WARN 940 --- [restartedMain] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-08-12 01:25:27.250  INFO 940 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2022-08-12 01:25:27.365  INFO 940 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-12 01:25:27.962  INFO 940 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-08-12 01:25:28.067  WARN 940 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it to the classpath.
+2022-08-12 01:25:28.173  INFO 940 --- [restartedMain] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2022-08-12 01:25:28.328  INFO 940 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.6.2
+2022-08-12 01:25:28.331  INFO 940 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: da65af02e5856e34
+2022-08-12 01:25:28.331  INFO 940 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1660247728326
+2022-08-12 01:25:30.394  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:32.544  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:34.694  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:36.957  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:39.431  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:42.236  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:45.354  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:48.606  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:51.745  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:54.659  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:57.560  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:25:58.353  INFO 940 --- [kafka-admin-client-thread | adminclient-1] o.a.k.c.a.i.AdminMetadataManager         : [AdminClient clientId=adminclient-1] Metadata update failed
+
+org.apache.kafka.common.errors.TimeoutException: Call(callName=fetchMetadata, deadlineMs=1660247758336, tries=1, nextAllowedTryMs=1660247758449) timed out at 1660247758349 after 1 attempt(s)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment.
+
+2022-08-12 01:25:58.355 ERROR 940 --- [restartedMain] o.springframework.kafka.core.KafkaAdmin  : Could not configure topics
+
+org.springframework.kafka.KafkaException: Timed out waiting to get existing topics; nested exception is java.util.concurrent.TimeoutException
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$4(KafkaAdmin.java:254) ~[spring-kafka-2.6.9.jar:2.6.9]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1336) ~[na:na]
+	at org.springframework.kafka.core.KafkaAdmin.checkPartitions(KafkaAdmin.java:233) ~[spring-kafka-2.6.9.jar:2.6.9]
+	at org.springframework.kafka.core.KafkaAdmin.addTopicsIfNeeded(KafkaAdmin.java:219) ~[spring-kafka-2.6.9.jar:2.6.9]
+	at org.springframework.kafka.core.KafkaAdmin.initialize(KafkaAdmin.java:189) ~[spring-kafka-2.6.9.jar:2.6.9]
+	at org.springframework.kafka.core.KafkaAdmin.afterSingletonsInstantiated(KafkaAdmin.java:157) ~[spring-kafka-2.6.9.jar:2.6.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:963) ~[spring-beans-5.3.8.jar:5.3.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.8.jar:5.3.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.8.jar:2.4.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:771) ~[spring-boot-2.4.8.jar:2.4.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:763) ~[spring-boot-2.4.8.jar:2.4.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:438) ~[spring-boot-2.4.8.jar:2.4.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:339) ~[spring-boot-2.4.8.jar:2.4.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1329) ~[spring-boot-2.4.8.jar:2.4.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1318) ~[spring-boot-2.4.8.jar:2.4.8]
+	at com.cognizant.userservice.UserServiceApplication.main(UserServiceApplication.java:20) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.8.jar:2.4.8]
+Caused by: java.util.concurrent.TimeoutException: null
+	at org.apache.kafka.common.internals.KafkaFutureImpl$SingleWaiter.await(KafkaFutureImpl.java:108) ~[kafka-clients-2.6.2.jar:na]
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:272) ~[kafka-clients-2.6.2.jar:na]
+	at org.springframework.kafka.core.KafkaAdmin.lambda$checkPartitions$4(KafkaAdmin.java:236) ~[spring-kafka-2.6.9.jar:2.6.9]
+	... 21 common frames omitted
+
+2022-08-12 01:26:00.737  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:03.642  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:06.885  WARN 940 --- [kafka-admin-client-thread | adminclient-1] org.apache.kafka.clients.NetworkClient   : [AdminClient clientId=adminclient-1] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:08.363  INFO 940 --- [kafka-admin-client-thread | adminclient-1] o.a.k.clients.admin.KafkaAdminClient     : [AdminClient clientId=adminclient-1] Forcing a hard I/O thread shutdown. Requests in progress will be aborted.
+2022-08-12 01:26:08.366  INFO 940 --- [kafka-admin-client-thread | adminclient-1] o.a.k.c.a.i.AdminMetadataManager         : [AdminClient clientId=adminclient-1] Metadata update failed
+
+org.apache.kafka.common.errors.TimeoutException: Call(callName=fetchMetadata, deadlineMs=1660247788349, tries=1, nextAllowedTryMs=-9223372036854775709) timed out at 9223372036854775807 after 1 attempt(s)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting to send the call.
+
+2022-08-12 01:26:08.386  INFO 940 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-08-12 01:26:08.436  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-08-12 01:26:08.444  INFO 940 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-08-12 01:26:08.500  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-08-12 01:26:08.500  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-08-12 01:26:08.500  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-08-12 01:26:08.500  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-08-12 01:26:08.501  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-08-12 01:26:08.501  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-08-12 01:26:08.501  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-08-12 01:26:08.740  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-08-12 01:26:08.743  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-08-12 01:26:08.747  INFO 940 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-08-12 01:26:08.754  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1660247768752 with initial instances count: 0
+2022-08-12 01:26:08.756  INFO 940 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-08-12 01:26:08.757  INFO 940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1660247768757, current=UP, previous=STARTING]
+2022-08-12 01:26:08.760  INFO 940 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/host.docker.internal:USER-SERVICE:8083: registering service...
+2022-08-12 01:26:08.790  INFO 940 --- [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-tweetApp-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = tweetApp
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2022-08-12 01:26:08.818  INFO 940 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/host.docker.internal:USER-SERVICE:8083 - registration status: 204
+2022-08-12 01:26:08.852  INFO 940 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 2.6.2
+2022-08-12 01:26:08.852  INFO 940 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: da65af02e5856e34
+2022-08-12 01:26:08.852  INFO 940 --- [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1660247768852
+2022-08-12 01:26:08.878  INFO 940 --- [restartedMain] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Subscribed to topic(s): message
+2022-08-12 01:26:08.911  INFO 940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+2022-08-12 01:26:08.912  INFO 940 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2022-08-12 01:26:08.970  INFO 940 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-12 01:26:08.996  INFO 940 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-12 01:26:09.063  INFO 940 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-12 01:26:09.228  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_1
+2022-08-12 01:26:09.232  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_2
+2022-08-12 01:26:09.233  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingDELETE_1
+2022-08-12 01:26:09.235  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_3
+2022-08-12 01:26:09.238  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_4
+2022-08-12 01:26:09.240  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_5
+2022-08-12 01:26:09.241  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_6
+2022-08-12 01:26:09.243  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_7
+2022-08-12 01:26:09.246  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_8
+2022-08-12 01:26:09.248  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_9
+2022-08-12 01:26:09.249  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_10
+2022-08-12 01:26:09.251  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_11
+2022-08-12 01:26:09.252  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_12
+2022-08-12 01:26:09.256  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_13
+2022-08-12 01:26:09.257  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_14
+2022-08-12 01:26:09.259  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_15
+2022-08-12 01:26:09.261  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_16
+2022-08-12 01:26:09.263  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_17
+2022-08-12 01:26:09.264  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingPOST_1
+2022-08-12 01:26:09.266  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_18
+2022-08-12 01:26:09.268  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_19
+2022-08-12 01:26:09.269  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingPOST_2
+2022-08-12 01:26:09.271  INFO 940 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: handleUsingGET_20
+2022-08-12 01:26:09.351  INFO 940 --- [restartedMain] c.c.userservice.UserServiceApplication   : Started UserServiceApplication in 48.022 seconds (JVM running for 48.965)
+2022-08-12 01:26:11.228  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:11.229  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:13.381  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:13.382  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:15.526  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:15.527  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:17.733  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:17.734  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:20.187  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:20.188  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:23.212  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:23.213  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:26.340  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:26.341  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:26.980  INFO 940 --- [http-nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-12 01:26:27.090  INFO 940 --- [http-nio-8083-exec-2] c.c.u.controller.UserController          : Registration for user vishnu revula
+2022-08-12 01:26:27.090  INFO 940 --- [http-nio-8083-exec-2] c.c.userservice.service.UserService      : In register Request-> UserDetails(email=vishnurevul@gmail.com, password=vishnu, firstName=vishnu, lastName=revula, gender=null, dob=14-08-1999, mobileNumber=9441311311, online=false) 
+2022-08-12 01:26:27.204  INFO 940 --- [http-nio-8083-exec-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:39}] to localhost:27017
+2022-08-12 01:26:27.303  INFO 940 --- [http-nio-8083-exec-2] c.c.userservice.service.UserService      : Exiting register Response -> UserName Registered Successfully
+2022-08-12 01:26:29.515  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:29.516  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:32.442  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:32.443  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:35.402  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:35.403  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:38.541  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:38.542  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:38.746  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-08-12 01:26:38.747  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-08-12 01:26:38.747  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-08-12 01:26:38.747  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-08-12 01:26:38.747  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-08-12 01:26:38.747  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2022-08-12 01:26:38.747  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-08-12 01:26:38.760  INFO 940 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-08-12 01:26:41.601  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:41.602  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:44.726  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:44.727  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:47.746  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:47.747  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:50.966  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:50.966  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:54.174  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:54.175  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:26:57.069  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:26:57.070  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:00.098  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:00.099  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:03.252  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:03.253  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:06.386  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:06.387  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:09.413  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:09.414  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:12.374  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:12.375  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:15.391  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:15.392  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:18.333  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:18.334  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:21.229  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:21.230  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:24.381  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:24.382  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:27.451  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:27.452  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:30.347  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:30.348  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:33.223  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:33.224  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:36.452  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:36.453  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:39.451  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:39.452  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:42.467  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:42.468  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:45.495  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:45.496  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:48.696  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:48.697  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:51.717  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:51.718  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:54.998  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:54.999  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:27:58.215  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:27:58.216  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:01.309  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:01.310  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:04.582  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:04.583  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:07.726  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:07.727  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:10.936  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:10.937  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:14.006  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:14.007  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:17.213  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:17.214  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:20.275  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:20.276  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:23.557  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:23.558  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:26.605  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:26.606  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:29.817  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:29.818  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:32.950  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:32.951  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:36.040  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:36.041  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:38.995  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:38.996  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:41.937  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:41.938  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:44.937  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:44.937  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:48.094  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:48.095  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:51.262  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:51.262  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:54.154  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:54.155  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:28:57.281  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:28:57.282  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:00.504  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:00.505  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:03.576  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:03.577  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:06.560  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:06.561  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:09.639  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:09.640  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:12.649  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:12.650  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:15.715  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:15.716  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:18.610  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:18.611  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:21.719  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:21.720  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:24.854  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:24.855  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:28.059  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:28.060  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:31.299  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:31.300  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:34.451  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:34.452  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:37.533  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:37.534  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:40.621  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:40.622  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:43.779  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:43.780  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:46.997  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:46.998  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:49.945  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:49.946  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:53.104  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:53.105  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:56.253  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:56.254  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:29:59.391  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:29:59.392  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:02.357  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:02.358  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:05.567  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:05.568  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:08.775  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:08.776  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:11.989  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:11.990  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:15.200  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:15.201  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:18.384  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:18.385  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:21.344  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:21.345  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:24.422  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:24.423  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:27.376  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:27.377  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:30.480  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:30.481  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:33.430  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:33.431  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected
+2022-08-12 01:30:36.343  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
+2022-08-12 01:30:36.344  WARN 940 --- [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-tweetApp-1, groupId=tweetApp] Bootstrap broker localhost:9092 (id: -1 rack: null) disconnected

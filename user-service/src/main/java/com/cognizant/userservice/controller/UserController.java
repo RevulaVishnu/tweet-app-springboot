@@ -1,9 +1,9 @@
 package com.cognizant.userservice.controller;
 //
-//import com.cognizant.userservice.exception.TweetAppException;
-//import com.cognizant.userservice.model.UserDetails;
-//import com.cognizant.userservice.service.UserService;
-//import com.cognizant.userservice.util.Envelope;
+import com.cognizant.userservice.exception.TweetAppException;
+import com.cognizant.userservice.model.UserDetails;
+import com.cognizant.userservice.service.UserService;
+import com.cognizant.userservice.util.Envelope;
 import io.micrometer.core.annotation.Timed;
 import lombok.Generated;
 import lombok.extern.slf4j.Slf4j;
@@ -23,18 +23,18 @@ import static com.cognizant.userservice.util.Constants.ROOT_URL;
 //@CrossOrigin(origins = "${client.url}")
 public class UserController {
 
-//	@Autowired
-//	UserService userService;
+	@Autowired
+	UserService userService;
 	@GetMapping(value = "/hello")
 	public String helloUser(){
 		return "Hello from user controller";
 	}
 
-/*
 	@PostMapping(value = "/register")
 	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
 	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserDetails user)
 	{
+		System.out.println(user.toString());
 		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
 		return userService.register(user);
 	}
@@ -67,6 +67,4 @@ public class UserController {
 		log.info("Search UserName {}", userName);
 		return userService.username(userName);
 	}
-
-*/
 }

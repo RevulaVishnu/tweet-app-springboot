@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 
-//@Repository
+@Repository
 public interface UserRepo extends MongoRepository<UserDetails, Long> {
 	@Query("{ emailId : ?0,password: ?1 }")
 	Optional<UserDetails> findByemailIdAndPassword(String emailId, String password);
