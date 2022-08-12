@@ -1,13 +1,10 @@
 package com.cts.authorization.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Model class for user credentials
@@ -15,15 +12,12 @@ import lombok.NoArgsConstructor;
  */
 
 @Getter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user_credentials")
+@Document
 public class User {
 	@Id
 	private String username;
-	@Column(nullable = false)
 	private String password;
-	@Column
 	private String role;
 }

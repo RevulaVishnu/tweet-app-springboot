@@ -47,6 +47,7 @@ public class UserService {
 		return ResponseEntity.ok(new Envelope<>(HttpStatus.OK.value(), HttpStatus.OK, user.getEmail() + " " + userRegister));
 	}
 
+/*
 	public ResponseEntity<Envelope<String>> login(String userName, String password) throws TweetAppException {
 		log.info(Constants.IN_REQUEST_LOG, "login", userName.concat(" " + password));
 		Optional<UserDetails> isValid = userRepository.findByemailIdAndPassword(userName, password);
@@ -56,6 +57,7 @@ public class UserService {
 		log.info(Constants.EXITING_RESPONSE_LOG, "login", userValid);
 		return ResponseEntity.ok(new Envelope<String>(HttpStatus.OK.value(), HttpStatus.OK, userValid));
 	}
+*/
 
 	public ResponseEntity<Envelope<String>> forgotPassword(String userName, String password) {
 		log.info(Constants.IN_REQUEST_LOG, "forgotPassword", userName.concat(" " + password));

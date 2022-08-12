@@ -1,6 +1,8 @@
 package com.cognizant.userservice.controller;
 //
+import com.cognizant.userservice.exception.InvalidTokenException;
 import com.cognizant.userservice.exception.TweetAppException;
+import com.cognizant.userservice.feign.AuthorisationClient;
 import com.cognizant.userservice.model.UserDetails;
 import com.cognizant.userservice.service.UserService;
 import com.cognizant.userservice.util.Envelope;
@@ -25,6 +27,10 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	AuthorisationClient authorisationClient;
+
 	@GetMapping(value = "/hello")
 	public String helloUser(){
 		return "Hello from user controller";
@@ -32,13 +38,18 @@ public class UserController {
 
 	@PostMapping(value = "/register")
 	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
-	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserDetails user)
+	public ResponseEntity<Envelope<String>> registerUser(@RequestHeader(name = "Authorization") String token,@RequestBody @Valid UserDetails user)
 	{
+		if (!authorisationClient.validate(token)) {
+			throw new InvalidTokenException("You are not allowed to access this resource");
+		}
+
 		System.out.println(user.toString());
 		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
 		return userService.register(user);
 	}
 
+/*
 	@GetMapping(value = "/login")
 	@Timed(value = "loginUser.time", description = "Time taken to return login")
 	public ResponseEntity<Envelope<String>> login( @RequestParam("emailId") String emailId, @RequestParam("password") String password ) throws TweetAppException
@@ -46,6 +57,7 @@ public class UserController {
 		log.info("Login for user {} {}", emailId, password);
 		return userService.login(emailId, password);
 	}
+*/
 
 	@GetMapping(value = "/forgot")
 	@Timed(value = "forgotPassword.time", description = "Time taken to return forgotPassword")
