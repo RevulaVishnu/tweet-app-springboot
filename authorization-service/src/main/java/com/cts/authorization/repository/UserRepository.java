@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.cts.authorization.model.User;
+import com.cts.authorization.model.UserData;
 
 import java.util.Optional;
 
@@ -14,8 +14,8 @@ import java.util.Optional;
  *
  */
 @Repository
-public interface UserRepository extends MongoRepository<User, String> {
-    @Query("{ _id : ?0")
-    Optional<User> findById(String emailId);
+public interface UserRepository extends MongoRepository<UserData, String> {
+    @Query("{ email : ?0}")
+    Optional<UserData> findById(String emailId);
 
 }

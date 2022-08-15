@@ -82,9 +82,12 @@ public class AuthorizationController {
 			throw new InvalidCredentialsException(DISABLED_ACCOUNT_MESSAGE);
 		} catch (LockedException e) {
 			throw new InvalidCredentialsException(LOCKED_ACCOUNT_MESSAGE);
+		} catch (Exception e){
+			e.printStackTrace();
 		}
 
 		String token = jwtUtil.generateToken(userRequest.getUsername());
+		System.out.println(token);
 		log.info("END - login()");
 		return new ResponseEntity<>(token, HttpStatus.OK);
 	}

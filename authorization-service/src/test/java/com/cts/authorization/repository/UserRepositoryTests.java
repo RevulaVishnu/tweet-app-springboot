@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cts.authorization.model.User;
+import com.cts.authorization.model.UserData;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,9 +30,9 @@ class UserRepositoryTests {
 	void testFindUserById_userExists() {
 		log.info("START - testFindUserById_userExists()");
 		final String username = "admin1";
-		Optional<User> userOptional = userRepository.findById(username);
+		Optional<UserData> userOptional = userRepository.findById(username);
 		assertTrue(userOptional.isPresent());
-		assertEquals(username, userOptional.get().getUsername());
+		assertEquals(username, userOptional.get().getEmail());
 		log.info("END - testFindUserById_userExists()");
 	}
 
@@ -41,7 +41,7 @@ class UserRepositoryTests {
 	void testFindUserById_userDoesNotExists() {
 		log.info("START - testFindUserById_userDoesNotExists()");
 		final String id = "adminDoesNotExist";
-		Optional<User> userOptional = userRepository.findById(id);
+		Optional<UserData> userOptional = userRepository.findById(id);
 		assertTrue(userOptional.isEmpty());
 		log.info("END - testFindUserById_userDoesNotExists()");
 	}

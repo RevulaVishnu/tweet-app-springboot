@@ -9,18 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import com.cts.authorization.model.User;
+import com.cts.authorization.model.UserData;
 import com.cts.authorization.repository.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class UserServiceImpl implements UserDetailsService {
+public class UserServiceImpl  {
+//	implements UserDetailsService
 
 	@Value("${userDetails.errorMessage}")
 	private String USER_DOES_NOT_EXISTS_MESSAGE;
@@ -34,9 +34,9 @@ public class UserServiceImpl implements UserDetailsService {
 	 * @param username
 	 * @return Optional<User> Object
 	 */
-	public Optional<User> findByUsername(String username) {
+	public Optional<UserData> findByUsername(String username) {
 		log.info(Constants.IN_REQUEST_LOG, "login", username);
-		Optional<User> isValid = userRepository.findById(username);
+		Optional<UserData> isValid = userRepository.findById(username);
 		System.out.println(isValid.toString());
 		String userValid = isValid.isPresent() ? Constants.LOGIN_SUCCESS : Constants.LOGIN_FAILED;
 		if (isValid.isEmpty())
@@ -54,9 +54,9 @@ public class UserServiceImpl implements UserDetailsService {
 	 * @param username
 	 * @return UserDetails
 	 */
-	@Override
-	public UserDetails loadUserByUsername(String username) {
-		Optional<User> userOptional = findByUsername(username);
+//	@Override
+	public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) {
+		Optional<UserData> userOptional = findByUsername(username);
 		String userValid = userOptional.isPresent() ? Constants.LOGIN_SUCCESS : Constants.LOGIN_FAILED;
 		if (userOptional.isEmpty()) {
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userValid);
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserDetailsService {
 		else {
 			log.info(Constants.EXITING_RESPONSE_LOG, "login", userValid);
 //			log.info("Username: {} is valid", username);
-			User user = userOptional.get();
+			UserData user = userOptional.get();
 			return new org.springframework.security.core.userdetails.User(username, user.getPassword(),
 					Collections.singletonList(new SimpleGrantedAuthority(user.getRole()))
 			);

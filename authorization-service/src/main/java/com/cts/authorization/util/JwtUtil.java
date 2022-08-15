@@ -2,6 +2,7 @@ package com.cts.authorization.util;
 
 import java.util.Base64;
 import java.util.Date;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -48,6 +49,12 @@ public class JwtUtil {
 	 */
 	public String generateToken(String subject) {
 		return Jwts.builder().setIssuedAt(new Date(System.currentTimeMillis())).setSubject(subject)
+				.setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(jwtValidityMinutes)))
+				.signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encode(secretKey.getBytes())).compact();
+	}
+
+	public String generateToken(Map<String, Object> claims, String subject) {
+		return Jwts.builder().setClaims(claims).setIssuedAt(new Date(System.currentTimeMillis())).setSubject(subject)
 				.setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(jwtValidityMinutes)))
 				.signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encode(secretKey.getBytes())).compact();
 	}

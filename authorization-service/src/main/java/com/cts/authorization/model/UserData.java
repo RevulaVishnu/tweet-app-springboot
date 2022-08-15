@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * Model class for user credentials
@@ -15,8 +16,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class User {
+public class UserData {
 	@Id
+	@Field(name = "email")
 	private String email;
 	private String password;
 	private String firstName;
