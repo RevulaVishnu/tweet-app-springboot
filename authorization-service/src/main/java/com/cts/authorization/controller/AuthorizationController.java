@@ -68,6 +68,7 @@ public class AuthorizationController {
 	 */
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@RequestBody @Valid UserRequest userRequest) {
+		System.out.println("In login controller meth");
 		log.info("START - login()");
 		try {
 			Authentication authenticate = authenticationManager.authenticate(

@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import com.cts.authorization.exception.InvalidCredentialsException;
 import com.cts.authorization.model.User;
 import com.cts.authorization.repository.UserRepository;
 
@@ -37,7 +36,8 @@ public class UserServiceImpl implements UserDetailsService {
 	 */
 	public Optional<User> findByUsername(String username) {
 		log.info(Constants.IN_REQUEST_LOG, "login", username);
-		Optional<User> isValid = userRepository.findByemailId(username);
+		Optional<User> isValid = userRepository.findById(username);
+		System.out.println(isValid.toString());
 		String userValid = isValid.isPresent() ? Constants.LOGIN_SUCCESS : Constants.LOGIN_FAILED;
 		if (isValid.isEmpty())
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userValid);
@@ -66,7 +66,8 @@ public class UserServiceImpl implements UserDetailsService {
 //			log.info("Username: {} is valid", username);
 			User user = userOptional.get();
 			return new org.springframework.security.core.userdetails.User(username, user.getPassword(),
-					Collections.singletonList(new SimpleGrantedAuthority(user.getRole())));
+					Collections.singletonList(new SimpleGrantedAuthority(user.getRole()))
+			);
 		}
 	}
 

@@ -5,6 +5,7 @@ import com.cognizant.userservice.exception.TweetAppException;
 import com.cognizant.userservice.feign.AuthorisationClient;
 import com.cognizant.userservice.model.UserDetails;
 import com.cognizant.userservice.service.UserService;
+import com.cognizant.userservice.util.EncodePassword;
 import com.cognizant.userservice.util.Envelope;
 import io.micrometer.core.annotation.Timed;
 import lombok.Generated;
@@ -27,9 +28,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-
-	@Autowired
-	AuthorisationClient authorisationClient;
+//
+//	@Autowired
+//	AuthorisationClient authorisationClient;
 
 	@GetMapping(value = "/hello")
 	public String helloUser(){
@@ -38,11 +39,13 @@ public class UserController {
 
 	@PostMapping(value = "/register")
 	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
-	public ResponseEntity<Envelope<String>> registerUser(@RequestHeader(name = "Authorization") String token,@RequestBody @Valid UserDetails user)
+	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserDetails user)
+//	public ResponseEntity<Envelope<String>> registerUser(@RequestHeader(name = "Authorization") String token,@RequestBody @Valid UserDetails user)
 	{
-		if (!authorisationClient.validate(token)) {
-			throw new InvalidTokenException("You are not allowed to access this resource");
-		}
+		user.setPassword(EncodePassword.registerStudent(user.getPassword()));
+//		if (!authorisationClient.validate(token)) {
+//			throw new InvalidTokenException("You are not allowed to access this resource");
+//		}
 
 		System.out.println(user.toString());
 		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
