@@ -20,17 +20,17 @@ import lombok.extern.slf4j.Slf4j;
  */
 @SpringBootTest
 @Slf4j
-class UserRepositoryTests {
+class UserRepoTests {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepo userRepo;
 
 	@Test
 	@DisplayName("This method is responsible to test findById() method when user exists in database")
 	void testFindUserById_userExists() {
 		log.info("START - testFindUserById_userExists()");
 		final String username = "admin1";
-		Optional<UserData> userOptional = userRepository.findById(username);
+		Optional<UserData> userOptional = userRepo.findById(username);
 		assertTrue(userOptional.isPresent());
 		assertEquals(username, userOptional.get().getEmail());
 		log.info("END - testFindUserById_userExists()");
@@ -41,7 +41,7 @@ class UserRepositoryTests {
 	void testFindUserById_userDoesNotExists() {
 		log.info("START - testFindUserById_userDoesNotExists()");
 		final String id = "adminDoesNotExist";
-		Optional<UserData> userOptional = userRepository.findById(id);
+		Optional<UserData> userOptional = userRepo.findById(id);
 		assertTrue(userOptional.isEmpty());
 		log.info("END - testFindUserById_userDoesNotExists()");
 	}

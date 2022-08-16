@@ -229,7 +229,7 @@ class AuthorizationControllerTests {
 		log.info("START - testValidateAdmin_withValidTokenAndRole()");
 
 		// mock certain functionalities to load user and have a valid token
-		when(userServiceImpl.loadUserByUsername(ArgumentMatchers.any())).thenReturn(validUser);
+	//	when(userServiceImpl.loadUserByUsername(ArgumentMatchers.any())).thenReturn(validUser);
 		when(jwtUtil.isTokenExpiredOrInvalidFormat(ArgumentMatchers.any())).thenReturn(false);
 
 		// set the token
@@ -249,7 +249,7 @@ class AuthorizationControllerTests {
 		final String errorMessage = "Token has been expired";
 
 		// mock certain functionalities to load user and have a invalid token
-		when(userServiceImpl.loadUserByUsername(ArgumentMatchers.any())).thenReturn(validUser);
+	//	when(userServiceImpl.loadUserByUsername(ArgumentMatchers.any())).thenReturn(validUser);
 		when(jwtUtil.isTokenExpiredOrInvalidFormat(ArgumentMatchers.any())).thenThrow(new InvalidTokenException(errorMessage));
 
 		// set the invalid token
@@ -268,7 +268,7 @@ class AuthorizationControllerTests {
 		log.info("START - testValidate_withInvalidRole()");
 
 		// mock certain functionalities to load invalid user and have a valid token
-		when(userServiceImpl.loadUserByUsername(ArgumentMatchers.any())).thenReturn(invalidUser);
+	//	when(userServiceImpl.loadUserByUsername(ArgumentMatchers.any())).thenReturn(invalidUser);
 		when(jwtUtil.isTokenExpiredOrInvalidFormat(ArgumentMatchers.any())).thenReturn(false);
 
 		// set the invalid token

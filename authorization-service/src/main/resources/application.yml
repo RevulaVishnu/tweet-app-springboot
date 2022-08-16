@@ -21,8 +21,8 @@ spring:
       host: localhost
       repositories:
         enables: true
-#
-#
+
+
 #  # Configure Database here
 #  datasource:
 #    url: jdbc:h2:mem:authentication_db

@@ -1,15 +1,12 @@
 package com.cognizant.userservice;
 
-import com.cognizant.userservice.controller.UserController;
-import com.cognizant.userservice.model.UserDetails;
+import com.cognizant.userservice.model.UserData;
 import com.cognizant.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 @SpringBootApplication
 public class UserServiceApplication {
@@ -21,7 +18,7 @@ public class UserServiceApplication {
 	}
 
 	public void init() throws ParseException {
-		UserDetails userDetails = new UserDetails(
+		UserData userData = new UserData(
 				"vishnu@gmail.com",
 				"vishnu",
 				"vishnu",
@@ -32,7 +29,7 @@ public class UserServiceApplication {
 				"94413121212",
 				false
 		);
-		userService.register(userDetails);
+		userService.register(userData);
 	}
 
 

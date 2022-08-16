@@ -3,8 +3,7 @@ package com.cognizant.userservice.model;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Date;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
@@ -12,8 +11,9 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Document(collection = "user-details")
-public class UserDetails {
+public class UserData {
     @Id
+    @Field(name = "email")
     private String email;
     private String password;
     private String firstName;

@@ -4,24 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.cts.authorization.exception.InvalidCredentialsException;
-import com.cts.authorization.model.UserData;
-import com.cts.authorization.repository.UserRepository;
+import com.cts.authorization.repository.UserRepo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,7 +29,7 @@ class UserServiceTests {
 	private UserServiceImpl userServiceImpl;
 
 	@MockBean
-	private UserRepository userRepository;
+	private UserRepo userRepository;
 
 	@Value("${userDetails.errorMessage}")
 	private String ERROR_MESSAGE;

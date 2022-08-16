@@ -17,14 +17,10 @@ public class EncodePassword {
     public static void registerStudent() {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         System.out.println(bCryptPasswordEncoder.encode("vishnu"));
-//        String en1 = bCryptPasswordEncoder.encode("password1");
-//        String en2 = bCryptPasswordEncoder.encode("password1");
-
-//        if(bCryptPasswordEncoder.matches(en1,en2)){
-//            System.out.println("Matched");
-//        }
     }
 
-
-
+    public static String registerStudent(String password) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return (bCryptPasswordEncoder.encode(password));
+    }
 }

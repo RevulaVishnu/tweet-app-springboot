@@ -2,6 +2,11 @@ package com.cts.authorization.controller;
 
 import javax.validation.Valid;
 
+import com.cts.authorization.model.UserData;
+
+import com.cts.authorization.service.UserServiceImpl;
+import com.cts.authorization.util.EncodePassword;
+import com.cts.authorization.util.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -21,6 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+//import io.micrometer.core.annotation.Timed;
 
 import com.cts.authorization.exception.InvalidCredentialsException;
 import com.cts.authorization.model.UserRequest;
@@ -46,7 +52,10 @@ public class AuthorizationController {
 	private JwtUtil jwtUtil;
 
 	@Autowired
-	private UserDetailsService userService;
+	private UserServiceImpl userService;
+
+	@Autowired
+	private UserDetailsService userDetailsService;
 
 	@Value("${userDetails.badCredentialsMessage}")
 	private String BAD_CREDENTIALS_MESSAGE;
@@ -58,21 +67,22 @@ public class AuthorizationController {
 	private String LOCKED_ACCOUNT_MESSAGE;
 
 	/**
-	 * @URL: http://localhost:8081/login
-	 * 
+	 * @URL: <a href="http://localhost:8081/login">...</a>
+	 *
 	 * @Data: [Admin] { "username": "admin1", "password": "adminpass@1234" }
-	 * 
+	 *
 	 * @param userRequest {username, password}
 	 * @return token on successful login else throws exception handled by
 	 *         GlobalExceptionHandler
 	 */
-	@PostMapping("/login")
+	@GetMapping("/login")
 	public ResponseEntity<String> login(@RequestBody @Valid UserRequest userRequest) {
 		System.out.println("In login controller meth");
 		log.info("START - login()");
 		try {
 			Authentication authenticate = authenticationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(userRequest.getUsername(), userRequest.getPassword()));
+			System.out.println(authenticate.isAuthenticated());
 			if (authenticate.isAuthenticated()) {
 				log.info("Valid User detected - logged in");
 			}
@@ -92,15 +102,29 @@ public class AuthorizationController {
 		return new ResponseEntity<>(token, HttpStatus.OK);
 	}
 
+	@PostMapping(value = "/register")
+//	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
+	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserData user)
+	{
+		user.setPassword(EncodePassword.registerStudent(user.getPassword()));
+//		if (!authorisationClient.validate(token)) {
+//			throw new InvalidTokenException("You are not allowed to access this resource");
+//		}
+
+		System.out.println(user.toString());
+		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
+		return userService.register(user);
+	}
+
+
 	/**
 	 * Checks if the token is a valid administrator token
-	 * 
-	 * @URL: http://localhost:8081/validate
-	 * 
+	 *
+	 * @URL: <a href="http://localhost:8081/validate">...</a>
+	 *
 	 * @Header: [Authorization] = JWT Token
-	 * 
+	 *
 	 * @param token
-	 * @return
 	 */
 	@GetMapping("/validate")
 	public ResponseEntity<Boolean> validateAdmin(@RequestHeader(name = "Authorization") String token) {
@@ -111,8 +135,8 @@ public class AuthorizationController {
 
 		// else the user is loaded and role is checked, if role is valid, access is
 		// granted
-		UserDetails user = userService.loadUserByUsername(jwtUtil.getUsernameFromToken(token));
-		if (user.getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"))) {
+		UserDetails user = userDetailsService.loadUserByUsername(jwtUtil.getUsernameFromToken(token));
+		if (user.getAuthorities().contains(new SimpleGrantedAuthority("ADMIN")) && !user.getUsername().equals("")) {
 			log.info("END - validateAdmin()");
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
@@ -122,7 +146,7 @@ public class AuthorizationController {
 	}
 
 	/**
-	 * @URL: http://localhost:8081/statusCheck
+	 * @URL: <a href="http://localhost:8081/statusCheck">...</a>
 	 * @return "OK" if the server and controller is up and running
 	 */
 	@GetMapping(value = "/statusCheck")

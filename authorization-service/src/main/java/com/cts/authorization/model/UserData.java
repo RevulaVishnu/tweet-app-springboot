@@ -1,8 +1,6 @@
 package com.cts.authorization.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -13,9 +11,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
  */
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@ToString
+@Document(collection = "user-details")
 public class UserData {
 	@Id
 	@Field(name = "email")
@@ -27,5 +27,4 @@ public class UserData {
 	private String dob;
 	private String mobileNumber;
 	private boolean online;
-	private String role;
 }

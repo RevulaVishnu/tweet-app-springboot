@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.cognizant.userservice.configuration.KafkaProducerConfig;
 import com.cognizant.userservice.exception.TweetAppException;
-import com.cognizant.userservice.model.UserDetails;
+import com.cognizant.userservice.model.UserData;
 import com.cognizant.userservice.repo.UserRepo;
 import com.cognizant.userservice.util.Envelope;
 import com.cognizant.userservice.util.Constants;
@@ -33,9 +33,9 @@ public class UserService{
 	@Autowired
 	private KafkaProducerConfig producer;
 
-	public ResponseEntity<Envelope<String>> register(UserDetails user) {
+	public ResponseEntity<Envelope<String>> register(UserData user) {
 		log.info(Constants.IN_REQUEST_LOG, "register", user.toString());
-		Optional<UserDetails> isValid = userRepository.findByEmailIdName(user.getEmail());
+		Optional<UserData> isValid = userRepository.findByEmailIdName(user.getEmail());
 		String userRegister = isValid.isPresent()
 				? Constants.USER_NAME_ALREADY_EXIST
 				: Constants.USER_NAME_REGISTERED_SUCCESSFULLY;
@@ -61,7 +61,7 @@ public class UserService{
 
 	public ResponseEntity<Envelope<String>> forgotPassword(String userName, String password) {
 		log.info(Constants.IN_REQUEST_LOG, "forgotPassword", userName.concat(" " + password));
-		Optional<UserDetails> findByEmailIdName = userRepository.findByEmailIdName(userName);
+		Optional<UserData> findByEmailIdName = userRepository.findByEmailIdName(userName);
 		if (findByEmailIdName.isEmpty()) {
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST,
 					Constants.USER_NAME_NOT_PRESENT);
@@ -71,7 +71,7 @@ public class UserService{
 		query.addCriteria(Criteria.where(Constants.EMAIL_ID).is(userName));
 		Update update = new Update();
 		update.set(Constants.PASSWORD, password);
-		UserDetails user = mongoOperations.findAndModify(query, update, UserDetails.class);
+		UserData user = mongoOperations.findAndModify(query, update, UserData.class);
 
 		if (user == null)
 			throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
@@ -80,9 +80,9 @@ public class UserService{
 		return ResponseEntity.ok(new Envelope<>(HttpStatus.OK.value(), HttpStatus.OK, Constants.PASSWORD_UPDATED));
 	}
 
-	public ResponseEntity<Envelope<List<UserDetails>>> getAllusers() {
+	public ResponseEntity<Envelope<List<UserData>>> getAllusers() {
 		log.info(Constants.IN_REQUEST_LOG, "getAllusers", "Getting All Users");
-		List<UserDetails> findAll = userRepository.findAll();
+		List<UserData> findAll = userRepository.findAll();
 		log.debug("allUsers from list {}", findAll);
 		if (findAll.isEmpty())
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST,
@@ -91,9 +91,10 @@ public class UserService{
 		return ResponseEntity.ok(new Envelope<>(HttpStatus.OK.value(), HttpStatus.OK, findAll));
 	}
 
-	public ResponseEntity<Envelope<UserDetails>> username(String userName) {
+	public ResponseEntity username(String userName) {
 		log.info(Constants.IN_REQUEST_LOG, "username", userName);
-		Optional<UserDetails> userPresent = userRepository.findByEmailIdName(userName);
+		Optional<UserData> userPresent = userRepository.findByEmailIdName(userName);
+		log.info(Constants.IN_REQUEST_LOG, "UserData is:", userPresent.toString());
 		log.debug("{}", userPresent);
 		if (userPresent.isEmpty())
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userPresent.toString());

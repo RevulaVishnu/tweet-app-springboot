@@ -1,9 +1,6 @@
 package com.cognizant.userservice.controller;
 //
-import com.cognizant.userservice.exception.InvalidTokenException;
-import com.cognizant.userservice.exception.TweetAppException;
-import com.cognizant.userservice.feign.AuthorisationClient;
-import com.cognizant.userservice.model.UserDetails;
+import com.cognizant.userservice.model.UserData;
 import com.cognizant.userservice.service.UserService;
 import com.cognizant.userservice.util.EncodePassword;
 import com.cognizant.userservice.util.Envelope;
@@ -39,7 +36,7 @@ public class UserController {
 
 	@PostMapping(value = "/register")
 	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
-	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserDetails user)
+	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserData user)
 //	public ResponseEntity<Envelope<String>> registerUser(@RequestHeader(name = "Authorization") String token,@RequestBody @Valid UserDetails user)
 	{
 		user.setPassword(EncodePassword.registerStudent(user.getPassword()));
@@ -71,14 +68,14 @@ public class UserController {
 
 	@GetMapping(value = "/users")
 	@Timed(value = "users.time", description = "Time taken to return users")
-	public ResponseEntity<Envelope<List<UserDetails>>> users() {
+	public ResponseEntity<Envelope<List<UserData>>> users() {
 		log.info("Get All Users");
 		return userService.getAllusers();
 	}
 
 	@GetMapping(value = "/users/search")
 	@Timed(value = "searchUserName.time", description = "Time taken to return searchUserName")
-	public ResponseEntity<Envelope<UserDetails>> searchUserName(@RequestParam("userName") String userName) {
+	public ResponseEntity<Envelope<UserData>> searchUserName(@RequestParam("userName") String userName) {
 		log.info("Search UserName {}", userName);
 		return userService.username(userName);
 	}

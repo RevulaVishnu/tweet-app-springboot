@@ -48,9 +48,14 @@ public class JwtUtil {
 	 * @return JWT
 	 */
 	public String generateToken(String subject) {
-		return Jwts.builder().setIssuedAt(new Date(System.currentTimeMillis())).setSubject(subject)
-				.setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(jwtValidityMinutes)))
-				.signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encode(secretKey.getBytes())).compact();
+		if(subject.isEmpty()) {
+			return null;
+		}
+		else {
+			return Jwts.builder().setIssuedAt(new Date(System.currentTimeMillis())).setSubject(subject)
+					.setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(jwtValidityMinutes)))
+					.signWith(SignatureAlgorithm.HS256, Base64.getEncoder().encode(secretKey.getBytes())).compact();
+		}
 	}
 
 	public String generateToken(Map<String, Object> claims, String subject) {
