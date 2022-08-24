@@ -30,7 +30,7 @@ public class UserService{
 	@Autowired
 	MongoOperations mongoOperations;
 
-	@Autowired
+//	@Autowired
 	private KafkaProducerConfig producer;
 
 	public ResponseEntity<Envelope<String>> register(UserData user) {
@@ -66,7 +66,7 @@ public class UserService{
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST,
 					Constants.USER_NAME_NOT_PRESENT);
 		}
-		producer.sendMessage("Forgot Password for :: " + userName.concat(" " + password));
+//		producer.sendMessage("Forgot Password for :: " + userName.concat(" " + password));
 		Query query = new Query();
 		query.addCriteria(Criteria.where(Constants.EMAIL_ID).is(userName));
 		Update update = new Update();
