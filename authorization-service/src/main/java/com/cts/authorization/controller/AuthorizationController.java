@@ -67,13 +67,13 @@ public class AuthorizationController {
 	 */
 	@GetMapping("/login")
 	public ResponseEntity<String> login(@RequestBody @Valid UserRequest userRequest) {
+		boolean isAuthenticated = false;
 		System.out.println("In login controller meth");
 		log.info("START - login()");
 		try {
-			Authentication authenticate = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(userRequest.getUsername(), userRequest.getPassword()));
-			System.out.println(authenticate.isAuthenticated());
+			Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUsername(), userRequest.getPassword()));
 			if (authenticate.isAuthenticated()) {
+				isAuthenticated=true;
 				log.info("Valid User detected - logged in");
 			}
 		} catch (BadCredentialsException e) {
@@ -85,11 +85,14 @@ public class AuthorizationController {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-
-		String token = jwtUtil.generateToken(userRequest.getUsername());
-		System.out.println(token);
-		log.info("END - login()");
-		return new ResponseEntity<>(token, HttpStatus.OK);
+		if(isAuthenticated){
+			String token = jwtUtil.generateToken(userRequest.getUsername());
+			System.out.println(token);
+			log.info("END - login()");
+			return new ResponseEntity<>(token, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
 	}
 
 	/**
@@ -99,7 +102,7 @@ public class AuthorizationController {
 	 *
 	 * @Header: [Authorization] = JWT Token
 	 *
-	 * @param token
+	 * @RequestHeader token
 	 */
 	@GetMapping("/validate")
 	public ResponseEntity<Boolean> validateJWT(@RequestHeader(name = "Authorization") String token) {
@@ -119,7 +122,7 @@ public class AuthorizationController {
 	}
 
 	/**
-	 * @URL: <a href="http://localhost:8081/statusCheck">...</a>
+	 * @URL: <a href="http://localhost:8084/api/v1.0/statusCheck">...</a>
 	 * @return "OK" if the server and controller is up and running
 	 */
 	@GetMapping(value = "/statusCheck")
