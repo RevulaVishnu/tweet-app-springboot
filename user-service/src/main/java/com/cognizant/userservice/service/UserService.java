@@ -79,9 +79,9 @@ public class UserService {
 		return ResponseEntity.ok(new RequestResponse<>(HttpStatus.OK.value(), HttpStatus.OK, findAll));
 	}
 
-	public ResponseEntity username(String userName) {
+	public ResponseEntity searchBasedOnUserName(String userName) {
 		log.info(Constants.IN_REQUEST_LOG, "username", userName);
-		Optional<UserData> userPresent = userRepository.findByEmailIdName(userName);
+		Optional<UserData> userPresent = userRepository.findByUserName(userName);
 		log.info(Constants.IN_REQUEST_LOG, "UserData is:", userPresent.toString());
 		log.debug("{}", userPresent);
 		if (userPresent.isEmpty())

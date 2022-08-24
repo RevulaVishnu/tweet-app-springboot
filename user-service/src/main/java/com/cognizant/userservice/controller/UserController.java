@@ -6,7 +6,6 @@ import com.cognizant.userservice.util.UserDetailsUtils;
 import io.micrometer.core.annotation.Timed;
 import lombok.Generated;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +53,7 @@ public class UserController {
 	@Timed(value = "searchUserName.time", description = "Time taken to return searchUserName")
 	public ResponseEntity searchUserName(@RequestParam("userName") String userName) {
 		log.info("Search UserName {}", userName);
-		return userService.username(userName);
+		return userService.searchBasedOnUserName(UserDetailsUtils.extractUsername(userName));
 	}
 	/**
 	 * @URL: <a href="http://localhost:8081/statusCheck">...</a>

@@ -16,4 +16,7 @@ public interface UserRepo extends MongoRepository<UserData, Long> {
 	@Query("{ email : ?0}")
 	Optional<UserData> findByEmailIdName(String userName);
 
+	@Query("{ userName: ?0}")
+	Optional<UserData> findByUserName(String userName);
+
 }
