@@ -2,10 +2,11 @@ package com.cognizant.userservice.controller;
 //
 import com.cognizant.userservice.model.UserData;
 import com.cognizant.userservice.service.UserService;
-import com.cognizant.userservice.util.EncodePassword;
+import com.cognizant.userservice.util.UserDetailsUtils;
 import io.micrometer.core.annotation.Timed;
 import lombok.Generated;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,8 @@ public class UserController {
 	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
 	public ResponseEntity registerUser(@RequestBody @Valid UserData user)
 	{
-		user.setPassword(EncodePassword.registerStudent(user.getPassword()));
+		user.setPassword(UserDetailsUtils.encodePassword(user.getPassword()));
+		user.setUserName(UserDetailsUtils.extractUsername(user.getEmail()));
 		System.out.println(user);
 		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
 		return userService.register(user);

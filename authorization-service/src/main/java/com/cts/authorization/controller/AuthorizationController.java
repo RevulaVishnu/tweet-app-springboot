@@ -3,6 +3,7 @@ package com.cts.authorization.controller;
 import javax.validation.Valid;
 
 import com.cts.authorization.service.UserServiceImpl;
+import com.cts.authorization.util.UserDetailsUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -86,7 +87,7 @@ public class AuthorizationController {
 			e.printStackTrace();
 		}
 		if(isAuthenticated){
-			String token = jwtUtil.generateToken(userRequest.getUsername());
+			String token = jwtUtil.generateToken(UserDetailsUtils.extractUsername(userRequest.getUsername()));
 			System.out.println(token);
 			log.info("END - login()");
 			return new ResponseEntity<>(token, HttpStatus.OK);

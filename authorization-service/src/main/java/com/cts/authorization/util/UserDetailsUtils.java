@@ -1,8 +1,8 @@
-package com.cognizant.userservice.util;
+package com.cts.authorization.util;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class EncodePassword {
+public class UserDetailsUtils {
 
 
 //    public static void main(String[] args) {
@@ -14,11 +14,12 @@ public class EncodePassword {
      * @return
      */
 
-    public static String registerStudent(String password) {
+    public static String encodePassword(String password) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder.encode(password);
     }
 
-
-
+    public static String extractUsername(String email){
+        return email.split("@")[0];
+    }
 }
