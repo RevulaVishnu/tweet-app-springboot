@@ -1,8 +1,16 @@
 package com.cognizant.tweetservice.util;
 
 public class Constants {
-	public static final String ROOT_URL = "/api/v1.0/user";
+	public static final String ROOT_URL = "/api/v1.0/tweets";
+	public static final String LIKES = "likes";
+	public static final String REPLIES = "replies";
+	public static final String TWEET_ID = "tweetId";
+	public static final String REPLIED_TO_TWEET = "Replied to tweet";
+	public static final String LIKED_TWEET = "Liked tweet";
+	public static final String TWEET_UPDATED = "Tweet Updated";
+	public static final String TWEET_DELETED = "Tweet Deleted";
 	public static final String NO_TWEETS_FOUND = "No Tweets Found";
+	public static final String TWEET_ALREADY_PRESENT = "Tweet Already Present";
 	public static final String USER_NAME_NOT_PRESENT = "userName not Present";
 	public static final String ERROR_WHILE_UPDATING_PASSWORD = "Error While Updating Password";
 	public static final String USER_PRESENT_IN_DATABASE = " User present in Database";

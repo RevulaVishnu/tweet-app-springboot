@@ -10,10 +10,7 @@ import java.text.ParseException;
 
 @SpringBootApplication
 public class UserServiceApplication {
-
-	@Autowired
-	UserService userService;
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
 }
