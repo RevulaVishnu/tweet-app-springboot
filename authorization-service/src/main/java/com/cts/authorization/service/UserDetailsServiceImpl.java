@@ -5,8 +5,10 @@ import com.cts.authorization.exception.TweetAppException;
 import com.cts.authorization.model.UserData;
 import com.cts.authorization.repository.UserRepo;
 import com.cts.authorization.util.Constants;
+import com.cts.authorization.util.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userPresent.toString());
         }
         log.info(Constants.EXITING_RESPONSE_LOG, "username", userPresent.isEmpty() ? "Not Present" : "Present");
-        log.info(Constants.EXITING_RESPONSE_LOG, "login", userPresent);
+        //log.info(Constants.EXITING_RESPONSE_LOG, "login", userPresent);
         return new User(userPresent.get().getEmail(), userPresent.get().getPassword(), new ArrayList<>());
     }
 }

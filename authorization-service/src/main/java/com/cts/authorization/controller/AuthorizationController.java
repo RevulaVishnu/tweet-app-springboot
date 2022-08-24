@@ -2,11 +2,7 @@ package com.cts.authorization.controller;
 
 import javax.validation.Valid;
 
-import com.cts.authorization.model.UserData;
-
 import com.cts.authorization.service.UserServiceImpl;
-import com.cts.authorization.util.EncodePassword;
-import com.cts.authorization.util.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -20,7 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
-//import io.micrometer.core.annotation.Timed;
 
 import com.cts.authorization.exception.InvalidCredentialsException;
 import com.cts.authorization.model.UserRequest;
@@ -96,21 +91,6 @@ public class AuthorizationController {
 		log.info("END - login()");
 		return new ResponseEntity<>(token, HttpStatus.OK);
 	}
-
-	@PostMapping(value = "/register")
-//	@Timed(value = "registerUser.time", description = "Time taken to return registerUser")
-	public ResponseEntity<Envelope<String>> registerUser(@RequestBody @Valid UserData user)
-	{
-		user.setPassword(EncodePassword.registerStudent(user.getPassword()));
-//		if (!authorisationClient.validate(token)) {
-//			throw new InvalidTokenException("You are not allowed to access this resource");
-//		}
-
-		System.out.println(user.toString());
-		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
-		return userService.register(user);
-	}
-
 
 	/**
 	 * Checks if the token is a valid administrator token
