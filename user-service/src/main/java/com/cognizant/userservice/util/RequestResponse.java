@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Envelope<T> {
+public class RequestResponse<T> {
 	public int statusCode;
 	public HttpStatus httpStatus;
 	public T data;

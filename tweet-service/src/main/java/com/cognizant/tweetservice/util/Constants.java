@@ -1,7 +1,7 @@
 package com.cognizant.tweetservice.util;
 
 public class Constants {
-	public static final String ROOT_URL = "/api/v1.0/tweets";
+	public static final String ROOT_URL = "/api/v1.0/user";
 	public static final String NO_TWEETS_FOUND = "No Tweets Found";
 	public static final String USER_NAME_NOT_PRESENT = "userName not Present";
 	public static final String ERROR_WHILE_UPDATING_PASSWORD = "Error While Updating Password";

@@ -7,7 +7,7 @@ import com.cognizant.userservice.configuration.KafkaProducerConfig;
 import com.cognizant.userservice.exception.TweetAppException;
 import com.cognizant.userservice.model.UserData;
 import com.cognizant.userservice.repo.UserRepo;
-import com.cognizant.userservice.util.Envelope;
+import com.cognizant.userservice.util.RequestResponse;
 import com.cognizant.userservice.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class UserService{
+public class UserService {
 
 	@Autowired
 	UserRepo userRepository;
@@ -33,7 +33,7 @@ public class UserService{
 //	@Autowired
 	private KafkaProducerConfig producer;
 
-	public ResponseEntity<Envelope<String>> register(UserData user) {
+	public ResponseEntity<RequestResponse<String>> register(UserData user) {
 		log.info(Constants.IN_REQUEST_LOG, "register", user.toString());
 		Optional<UserData> isValid = userRepository.findByEmailIdName(user.getEmail());
 		String userRegister = isValid.isPresent()
@@ -44,22 +44,10 @@ public class UserService{
 		else
 			userRepository.save(user);
 		log.info(Constants.EXITING_RESPONSE_LOG, "register", userRegister);
-		return ResponseEntity.ok(new Envelope<>(HttpStatus.OK.value(), HttpStatus.OK, user.getEmail() + " " + userRegister));
+		return ResponseEntity.ok(new RequestResponse<>(HttpStatus.OK.value(), HttpStatus.OK, user.getEmail() + " " + userRegister));
 	}
 
-/*
-	public ResponseEntity<Envelope<String>> login(String userName, String password) throws TweetAppException {
-		log.info(Constants.IN_REQUEST_LOG, "login", userName.concat(" " + password));
-		Optional<UserDetails> isValid = userRepository.findByemailIdAndPassword(userName, password);
-		String userValid = isValid.isPresent() ? Constants.LOGIN_SUCCESS : Constants.LOGIN_FAILED;
-		if (isValid.isEmpty())
-			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userValid);
-		log.info(Constants.EXITING_RESPONSE_LOG, "login", userValid);
-		return ResponseEntity.ok(new Envelope<String>(HttpStatus.OK.value(), HttpStatus.OK, userValid));
-	}
-*/
-
-	public ResponseEntity<Envelope<String>> forgotPassword(String userName, String password) {
+	public ResponseEntity<RequestResponse<String>> forgotPassword(String userName, String password) {
 		log.info(Constants.IN_REQUEST_LOG, "forgotPassword", userName.concat(" " + password));
 		Optional<UserData> findByEmailIdName = userRepository.findByEmailIdName(userName);
 		if (findByEmailIdName.isEmpty()) {
@@ -77,10 +65,10 @@ public class UserService{
 			throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
 					Constants.ERROR_WHILE_UPDATING_PASSWORD);
 		log.info(Constants.EXITING_RESPONSE_LOG, "forgotPassword", user.toString());
-		return ResponseEntity.ok(new Envelope<>(HttpStatus.OK.value(), HttpStatus.OK, Constants.PASSWORD_UPDATED));
+		return ResponseEntity.ok(new RequestResponse<>(HttpStatus.OK.value(), HttpStatus.OK, Constants.PASSWORD_UPDATED));
 	}
 
-	public ResponseEntity<Envelope<List<UserData>>> getAllusers() {
+	public ResponseEntity<RequestResponse<List<UserData>>> getAllusers() {
 		log.info(Constants.IN_REQUEST_LOG, "getAllusers", "Getting All Users");
 		List<UserData> findAll = userRepository.findAll();
 		log.debug("allUsers from list {}", findAll);
@@ -88,7 +76,7 @@ public class UserService{
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST,
 					Constants.NO_USERS_FOUND);
 		log.info(Constants.EXITING_RESPONSE_LOG, "getAllusers", findAll);
-		return ResponseEntity.ok(new Envelope<>(HttpStatus.OK.value(), HttpStatus.OK, findAll));
+		return ResponseEntity.ok(new RequestResponse<>(HttpStatus.OK.value(), HttpStatus.OK, findAll));
 	}
 
 	public ResponseEntity username(String userName) {
@@ -99,7 +87,7 @@ public class UserService{
 		if (userPresent.isEmpty())
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userPresent.toString());
 		log.info(Constants.EXITING_RESPONSE_LOG, "username", userPresent.isPresent() ? "Present" : "Not Present");
-		return ResponseEntity.ok(new Envelope(HttpStatus.OK.value(), HttpStatus.OK, userPresent));
+		return ResponseEntity.ok(new RequestResponse(HttpStatus.OK.value(), HttpStatus.OK, userPresent));
 	}
 }
 

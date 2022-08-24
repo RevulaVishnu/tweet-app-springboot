@@ -3,7 +3,7 @@ package com.cognizant.userservice.exception;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.cognizant.userservice.util.Envelope;
+import com.cognizant.userservice.util.RequestResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,22 +25,22 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-		Envelope<String> envelope = new Envelope<>();
+		RequestResponse<String> requestResponse = new RequestResponse<>();
 		// Get all errors
 		List<String> errors = ex.getBindingResult().getFieldErrors().stream().map(x -> x.getDefaultMessage())
 				.collect(Collectors.toList());
 
-		envelope.setData(errors.get(0));
-		envelope.setStatusCode(status.value());
-		envelope.setHttpStatus(status);
-		return new ResponseEntity<>(envelope, headers, status);
+		requestResponse.setData(errors.get(0));
+		requestResponse.setStatusCode(status.value());
+		requestResponse.setHttpStatus(status);
+		return new ResponseEntity<>(requestResponse, headers, status);
 
 	}
 
 	@ExceptionHandler(Exception.class)
-	public ResponseEntity<Envelope<String>> TweetAppException(TweetAppException exception) {
+	public ResponseEntity<RequestResponse<String>> TweetAppException(TweetAppException exception) {
 
-		Envelope<String> env = new Envelope<>(exception.getStatusCode(), exception.getStatus(), exception.getData());
+		RequestResponse<String> env = new RequestResponse<>(exception.getStatusCode(), exception.getStatus(), exception.getData());
 		log.debug("TweetAppException StatusCode{} Message{}", exception.getStatus(), exception.getData());
 		return new ResponseEntity<>(env, HttpStatus.valueOf(exception.getStatusCode()));
 
