@@ -17,7 +17,6 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
@@ -123,17 +122,15 @@ public class AuthorizationController {
 	 * @param token
 	 */
 	@GetMapping("/validate")
-	public ResponseEntity<Boolean> validateAdmin(@RequestHeader(name = "Authorization") String token) {
-		log.info("START - validateAdmin()");
+	public ResponseEntity<Boolean> validateJWT(@RequestHeader(name = "Authorization") String token) {
+		log.info("START - validateJWT()");
 
 		// throws custom exception and response if token is invalid
 		jwtUtil.isTokenExpiredOrInvalidFormat(token);
 
-		// else the user is loaded and role is checked, if role is valid, access is
-		// granted
 		UserDetails user = userDetailsService.loadUserByUsername(jwtUtil.getUsernameFromToken(token));
-		if (user.getAuthorities().contains(new SimpleGrantedAuthority("ADMIN")) && !user.getUsername().equals("")) {
-			log.info("END - validateAdmin()");
+		if (!user.getUsername().equals("")) {
+			log.info("END - validateJWT()");
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 

@@ -13,7 +13,7 @@ public class SpringCloudGatewayRouting {
         return builder.routes()
                 .route("tweet-service", r-> r.path("/api/v1.0/tweets/**").uri("http://localhost:8082/"))
                 .route("user-service", r->r.path("/api/v1.0/user/**").uri("http://localhost:8083/"))
-                .route("AUTH-SERVICE", r->r.path("/api/v1.0/login").uri("http://localhost:8081/"))
+                .route("AUTH-SERVICE", r->r.path("/api/v1.0/login","/api/v1.0/validate").uri("http://localhost:8081/"))
                 .build();
     }
 }
