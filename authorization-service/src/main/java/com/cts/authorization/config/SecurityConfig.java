@@ -52,11 +52,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.csrf().disable()
 			.authorizeRequests()
-			.antMatchers(HttpMethod.POST, "/register").permitAll()
-			.antMatchers(HttpMethod.GET, "/login").permitAll()
-			.antMatchers(HttpMethod.POST, "/**").authenticated()
-			.antMatchers(HttpMethod.GET, "/**").authenticated()
-			.antMatchers(HttpMethod.OPTIONS, "/**").authenticated()
+			.antMatchers(HttpMethod.POST, "/**").permitAll()
+			.antMatchers(HttpMethod.GET, "/**").permitAll()
+			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 			.anyRequest().permitAll();
 	}
 

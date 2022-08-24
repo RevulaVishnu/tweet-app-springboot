@@ -20,12 +20,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 //import io.micrometer.core.annotation.Timed;
 
 import com.cts.authorization.exception.InvalidCredentialsException;
@@ -43,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @Slf4j
 @CrossOrigin
+@RequestMapping(value = "/api/v1.0")
 public class AuthorizationController {
 
 	@Autowired
@@ -67,7 +63,7 @@ public class AuthorizationController {
 	private String LOCKED_ACCOUNT_MESSAGE;
 
 	/**
-	 * @URL: <a href="http://localhost:8081/login">...</a>
+	 * @URL: <a href="http://localhost:8081//api/v1.0/login">...</a>
 	 *
 	 * @Data: [Admin] { "username": "admin1", "password": "adminpass@1234" }
 	 *
