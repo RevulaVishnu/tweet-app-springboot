@@ -26,7 +26,31 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
+#logging:
+#  level:
+#    '[org.springframework.web]': DEBUG
+#    '[com.cognizant.user-service]': DEBUG
+kafka:
+  consumer:
+    bootstrap-servers: localhost:9092
+    group-id: tweetApp
+    auto-offset-reset: earliest
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  producer:
+    bootstrap-servers: localhost:9092
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    batch-size: 100000
+
 logging:
+  file:
+    path: './config/logs'
+    name: ${logging.file.path}/my-app.log
   level:
-    '[org.springframework.web]': ERROR
-    '[com.cts.processPension]': DEBUG
+    org.springframework.web: ERROR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
