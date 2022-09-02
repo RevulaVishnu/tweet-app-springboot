@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
  * Feign client to connect with authorization micro-service for token validation
  *
  */
-@FeignClient("AUTH-SERVICE")
+@FeignClient("localhost:8084/api/v1.0")
 public interface AuthorisationClient {
 	
 	/**
@@ -18,6 +18,6 @@ public interface AuthorisationClient {
 	 * 
 	 */
 	@GetMapping("/validate")
-	public boolean validate(@RequestHeader(name = "Authorization") String token);
+	boolean validate(@RequestHeader(name = "Authorization") String token);
 
 }

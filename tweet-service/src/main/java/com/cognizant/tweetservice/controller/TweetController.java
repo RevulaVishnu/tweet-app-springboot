@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.ws.rs.QueryParam;
 
 import java.util.List;
 
@@ -23,7 +24,6 @@ import static com.cognizant.tweetservice.util.Constants.ROOT_URL;
 @RestController
 @Slf4j
 @Generated
-//@CrossOrigin(origins = "${client.url}")
 public class TweetController {
 
     @Autowired
@@ -33,10 +33,10 @@ public class TweetController {
     AuthorisationClient authorisationClient;
 
     @PostMapping("/add/{userName}")
-    @Timed(value = "postTweet.time", description = "Time taken to return postTweet")
+//    @Timed(value = "postTweet.time", description = "Time taken to return postTweet")
     public ResponseEntity<RequestResponse<String>> postTweet(@RequestHeader(name = "Authorization") String token,
-                                                      @RequestBody @Valid TweetRequest tweet,
-                                                      @RequestParam String userName) {
+                                                      @RequestBody TweetRequest tweet,
+                                                      @PathVariable(value = "userName") String userName) {
         if (!authorisationClient.validate(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
@@ -115,5 +115,15 @@ public class TweetController {
 
         log.info("In {} UserName {} ", "replyTweet", userName);
         return tweetService.replyTweet(userName, tweetId, reply);
+    }
+
+    /**
+     * @URL: <a href="http://localhost:8081/statusCheck">...</a>
+     * @return "OK" if the server and controller is up and running
+     */
+    @GetMapping(value = "/statusCheck")
+    public String statusCheck() {
+        log.info("OK");
+        return "OK";
     }
 }

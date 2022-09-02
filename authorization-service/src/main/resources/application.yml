@@ -48,5 +48,5 @@ userDetails:
   
 logging:
  level:
-    '[org.springframework.web]': ERROR
+    '[org.springframework.web]': DEBUG
     '[com.cts.processPension]': DEBUG       

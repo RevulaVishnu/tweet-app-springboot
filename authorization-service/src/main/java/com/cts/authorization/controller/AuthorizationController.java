@@ -87,7 +87,8 @@ public class AuthorizationController {
 			e.printStackTrace();
 		}
 		if(isAuthenticated){
-			String token = jwtUtil.generateToken(UserDetailsUtils.extractUsername(userRequest.getUsername()));
+			String token = jwtUtil.generateToken(userRequest.getUsername());
+//			String token = jwtUtil.generateToken(UserDetailsUtils.extractUsername(userRequest.getUsername()));
 			System.out.println(token);
 			log.info("END - login()");
 			return new ResponseEntity<>(token, HttpStatus.OK);
@@ -113,6 +114,7 @@ public class AuthorizationController {
 		jwtUtil.isTokenExpiredOrInvalidFormat(token);
 
 		UserDetails user = userDetailsService.loadUserByUsername(jwtUtil.getUsernameFromToken(token));
+		System.out.println(user.toString());
 		if (!user.getUsername().equals("")) {
 			log.info("END - validateJWT()");
 			return new ResponseEntity<>(true, HttpStatus.OK);

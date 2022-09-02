@@ -5,8 +5,8 @@ server:
 spring:
   application:
     name: USER-SERVICE
-  main:
-    allow-bean-definition-overriding: true
+#  main:
+#    allow-bean-definition-overriding: true
   data:
     mongodb:
       url: mongodb://localhost/tweet-app
@@ -25,10 +25,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-#logging:
-#  level:
-#    '[org.springframework.web]': DEBUG
-#    '[com.cognizant.user-service]': DEBUG
 kafka:
   consumer:
     bootstrap-servers: localhost:9092
@@ -43,11 +39,11 @@ kafka:
     batch-size: 100000
 
 logging:
-  file:
-    path: './config/logs'
-    name: ${logging.file.path}/my-app.log
+#  file:
+#    path: './config/logs'
+#    name: ${logging.file.path}/my-app.log
   level:
-    org.springframework.web: ERROR
+    org.springframework.web: DEBUG
 management:
   endpoints:
     web:

@@ -1,6 +1,7 @@
 package com.cognizant.tweetservice.model;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,6 +23,7 @@ public class Tweet {
     private int tweetId;
     private String userName;
     private String tweet;
+    @CreatedDate
     private Date created;
     private Map<String, Integer> likes;
     private Map<String, List<String>> replies;
