@@ -68,7 +68,7 @@ public class TweetController {
     public ResponseEntity<RequestResponse<String>> updateTweet(@RequestHeader(name = "Authorization") String token,
                                                         @PathVariable("userName") String userName,
                                                         @PathVariable("id") int tweetId,
-                                                        @RequestBody @Valid TweetRequest tweetRequest) {
+                                                        @RequestBody TweetRequest tweetRequest) {
         if (!authorisationClient.validate(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
@@ -103,18 +103,18 @@ public class TweetController {
         return tweetService.likeTweet(userName, tweetId);
     }
 
-    @PostMapping("/{userName}/reply/{id}/{reply}")
+    @PostMapping("/{userName}/reply/{id}")
     @Timed(value = "replyTweet.time", description = "Time taken to return replyTweet")
     public ResponseEntity<RequestResponse<String>> replyTweet(@RequestHeader(name = "Authorization") String token,
                                                        @PathVariable("userName") String userName,
                                                        @PathVariable("id") int tweetId,
-                                                       @PathVariable("reply") String reply) {
+                                                       @RequestBody TweetRequest reply) {
         if (!authorisationClient.validate(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
         log.info("In {} UserName {} ", "replyTweet", userName);
-        return tweetService.replyTweet(userName, tweetId, reply);
+        return tweetService.replyTweet(userName, tweetId, reply.getTweet());
     }
 
     /**

@@ -69,8 +69,7 @@ public class TweetService {
 	public ResponseEntity<RequestResponse<String>> updateTweet(String userName, int tweetId, TweetRequest tweetRequest) {
 		log.info(Constants.IN_REQUEST_LOG, "updateTweet", tweetRequest);
 		tweetAndUserValidation(userName, tweetId);
-		Tweet tweet = new Tweet(tweetRequest.getTweetId(), userName, tweetRequest.getTweet(),
-				new Date(System.currentTimeMillis()), null, null);
+		Tweet tweet = new Tweet(tweetId, userName, tweetRequest.getTweet(), new Date(System.currentTimeMillis()), null, null);
 		Query query = new Query();
 		query.addCriteria(Criteria.where("userName").is(userName));
 		Update update = new Update();
@@ -79,7 +78,7 @@ public class TweetService {
 		if (tweet == null)
 			throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
 					"Error While Updating Tweet");
-		producer.sendMessage("Updated Tweet :: " + tweet.toString().concat(" by ::" + userName));
+//		producer.sendMessage("Updated Tweet :: " + tweet.toString().concat(" by ::" + userName));
 		log.info(Constants.EXITING_RESPONSE_LOG, "updateTweet", tweet);
 		return ResponseEntity
 				.ok(new RequestResponse<String>(HttpStatus.OK.value(), HttpStatus.OK, Constants.TWEET_UPDATED));
