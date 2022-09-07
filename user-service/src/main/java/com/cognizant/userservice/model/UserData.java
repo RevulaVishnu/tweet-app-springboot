@@ -1,5 +1,6 @@
 package com.cognizant.userservice.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,6 +21,7 @@ public class UserData {
     private String firstName;
     private String lastName;
     private String gender;
+    @JsonFormat(pattern = "MM/dd/yyyy")
     private String dob;
     private String mobileNumber;
     private boolean online;

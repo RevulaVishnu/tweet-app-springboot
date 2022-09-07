@@ -31,7 +31,7 @@ public class TweetService {
 	@Autowired
 	MongoOperations mongoOperations;
 
-//	@Autowired
+	@Autowired
 	private KafkaProducerConfig producer;
 
 	public ResponseEntity<RequestResponse<String>> postTweet(String userName, TweetRequest tweetRequest) {
@@ -78,7 +78,7 @@ public class TweetService {
 		if (tweet == null)
 			throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
 					"Error While Updating Tweet");
-//		producer.sendMessage("Updated Tweet :: " + tweet.toString().concat(" by ::" + userName));
+		producer.sendMessage("Updated Tweet :: " + tweet.toString().concat(" by ::" + userName));
 		log.info(Constants.EXITING_RESPONSE_LOG, "updateTweet", tweet);
 		return ResponseEntity
 				.ok(new RequestResponse<String>(HttpStatus.OK.value(), HttpStatus.OK, Constants.TWEET_UPDATED));

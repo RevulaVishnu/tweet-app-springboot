@@ -32,7 +32,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @Slf4j
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/api/v1.0")
 public class AuthorizationController {
 
@@ -62,16 +62,18 @@ public class AuthorizationController {
 	 *
 	 * @Data: [Admin] { "username": "admin1", "password": "adminpass@1234" }
 	 *
-	 * @param userRequest {username, password}
+//	 * @param userRequest {username, password}
 	 * @return token on successful login else throws exception handled by
 	 *         GlobalExceptionHandler
 	 */
-	@GetMapping("/login")
+	@PostMapping("/login")
+//	public ResponseEntity<String> login(@RequestParam("username") String username, @RequestParam("password") String password ) {
 	public ResponseEntity<String> login(@RequestBody @Valid UserRequest userRequest) {
 		boolean isAuthenticated = false;
 		System.out.println("In login controller meth");
 		log.info("START - login()");
 		try {
+//			Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 			Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userRequest.getUsername(), userRequest.getPassword()));
 			if (authenticate.isAuthenticated()) {
 				isAuthenticated=true;
@@ -87,6 +89,7 @@ public class AuthorizationController {
 			e.printStackTrace();
 		}
 		if(isAuthenticated){
+//			String token = jwtUtil.generateToken(username);
 			String token = jwtUtil.generateToken(userRequest.getUsername());
 //			String token = jwtUtil.generateToken(UserDetailsUtils.extractUsername(userRequest.getUsername()));
 			System.out.println(token);

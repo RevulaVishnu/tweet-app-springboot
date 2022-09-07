@@ -2,6 +2,8 @@ package com.cognizant.tweetservice.util;
 
 public class Constants {
 	public static final String ROOT_URL = "/api/v1.0/tweets";
+
+	public static final String CLIENT_URL = "http://localhost:3000";
 	public static final String LIKES = "likes";
 	public static final String REPLIES = "replies";
 	public static final String TWEET_ID = "tweetId";

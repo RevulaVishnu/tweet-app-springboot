@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static com.cognizant.userservice.util.Constants.CLIENT_URL;
 import static com.cognizant.userservice.util.Constants.ROOT_URL;
 
 @RequestMapping(value = ROOT_URL)
 @RestController
 @Slf4j
 @Generated
-//@CrossOrigin(origins = "${client.url}")
+@CrossOrigin(origins = CLIENT_URL)
 public class UserController {
 
 	@Autowired

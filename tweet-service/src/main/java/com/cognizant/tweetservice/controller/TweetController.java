@@ -19,11 +19,13 @@ import javax.ws.rs.QueryParam;
 import java.util.List;
 
 import static com.cognizant.tweetservice.util.Constants.ROOT_URL;
+import static com.cognizant.tweetservice.util.Constants.CLIENT_URL;
 
 @RequestMapping(value = ROOT_URL)
 @RestController
 @Slf4j
 @Generated
+@CrossOrigin(origins = CLIENT_URL)
 public class TweetController {
 
     @Autowired
@@ -35,7 +37,7 @@ public class TweetController {
     @PostMapping("/add/{userName}")
 //    @Timed(value = "postTweet.time", description = "Time taken to return postTweet")
     public ResponseEntity<RequestResponse<String>> postTweet(@RequestHeader(name = "Authorization") String token,
-                                                      @RequestBody TweetRequest tweet,
+                                                      @RequestBody @Valid TweetRequest tweet,
                                                       @PathVariable(value = "userName") String userName) {
         if (!authorisationClient.validate(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
