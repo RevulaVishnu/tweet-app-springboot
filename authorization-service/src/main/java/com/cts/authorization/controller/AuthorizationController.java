@@ -2,8 +2,9 @@ package com.cts.authorization.controller;
 
 import javax.validation.Valid;
 
+import com.cts.authorization.model.UserResponseData;
 import com.cts.authorization.service.UserServiceImpl;
-import com.cts.authorization.util.UserDetailsUtils;
+import com.cts.authorization.util.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -58,17 +59,16 @@ public class AuthorizationController {
 	private String LOCKED_ACCOUNT_MESSAGE;
 
 	/**
-	 * @URL: <a href="http://localhost:8081//api/v1.0/login">...</a>
-	 *
-	 * @Data: [Admin] { "username": "admin1", "password": "adminpass@1234" }
-	 *
-//	 * @param userRequest {username, password}
 	 * @return token on successful login else throws exception handled by
-	 *         GlobalExceptionHandler
+	 * GlobalExceptionHandler
+	 * @URL: <a href="http://localhost:8081//api/v1.0/login">...</a>
+	 * @Data: [Admin] { "username": "admin1", "password": "adminpass@1234" }
+	 * <p>
+	 * //	 * @param userRequest {username, password}
 	 */
 	@PostMapping("/login")
 //	public ResponseEntity<String> login(@RequestParam("username") String username, @RequestParam("password") String password ) {
-	public ResponseEntity<String> login(@RequestBody @Valid UserRequest userRequest) {
+	public Envelope<UserResponseData> login(@RequestBody @Valid UserRequest userRequest) {
 		boolean isAuthenticated = false;
 		System.out.println("In login controller meth");
 		log.info("START - login()");
@@ -91,12 +91,14 @@ public class AuthorizationController {
 		if(isAuthenticated){
 //			String token = jwtUtil.generateToken(username);
 			String token = jwtUtil.generateToken(userRequest.getUsername());
+			UserResponseData userResponseData = new UserResponseData((userService.findByUsername(userRequest.getUsername())),token);
 //			String token = jwtUtil.generateToken(UserDetailsUtils.extractUsername(userRequest.getUsername()));
 			System.out.println(token);
 			log.info("END - login()");
-			return new ResponseEntity<>(token, HttpStatus.OK);
+			return new Envelope<UserResponseData>(HttpStatus.OK.value(), HttpStatus.OK,userResponseData);
+//			return new ResponseEntity<>(userResponseData, HttpStatus.OK);
 		}else{
-			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			return new Envelope<UserResponseData>(HttpStatus.FORBIDDEN.value(), HttpStatus.FORBIDDEN,null);
 		}
 	}
 

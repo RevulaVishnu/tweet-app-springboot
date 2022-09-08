@@ -22,4 +22,8 @@ public class UserDetailsUtils {
     public static String extractUsername(String email){
         return email.split("@")[0];
     }
+    public static String extractFirstName(String username){
+        return username.split(" ")[0];
+    }
+
 }

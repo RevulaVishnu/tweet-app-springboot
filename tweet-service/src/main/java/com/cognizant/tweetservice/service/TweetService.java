@@ -56,9 +56,9 @@ public class TweetService {
 		return ResponseEntity.ok(new RequestResponse<List<Tweet>>(HttpStatus.OK.value(), HttpStatus.OK, findAll));
 	}
 
-	public ResponseEntity<RequestResponse<List<Tweet>>> getAllUserTweet() {
+	public ResponseEntity<RequestResponse<List<Tweet>>> getAllUserTweet(String username) {
 		log.info(Constants.IN_REQUEST_LOG, "getAllTweet", "getting All Tweets");
-		List<Tweet> findAll = tweetRepository.findAll();
+		List<Tweet> findAll = tweetRepository.findByUserName(username);
 		if (findAll.isEmpty())
 			throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
 					Constants.NO_TWEETS_FOUND);

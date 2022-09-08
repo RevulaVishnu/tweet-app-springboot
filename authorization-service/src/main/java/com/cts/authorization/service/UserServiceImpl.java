@@ -32,7 +32,7 @@ public class UserServiceImpl  {
 	 * @param username
 	 * @return Optional<User> Object
 	 */
-	public Optional<UserData> findByUsername(String username) {
+	public UserData findByUsername(String username) {
 		log.info(Constants.IN_REQUEST_LOG, "login", username);
 		Optional<UserData> isValid = userRepo.findById(username);
 		System.out.println(isValid.toString());
@@ -40,7 +40,17 @@ public class UserServiceImpl  {
 		if (isValid.isEmpty())
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userValid);
 		log.info(Constants.EXITING_RESPONSE_LOG, "login", userValid);
-		return isValid;
+
+		return new UserData(
+				isValid.get().getEmail(),
+				isValid.get().getPassword(),
+				isValid.get().getFirstName(),
+				isValid.get().getLastName(),
+				isValid.get().getGender(),
+				isValid.get().getDob(),
+				isValid.get().getMobileNumber(),
+				isValid.get().isOnline()
+				);
 	}
 //	public Optional<User> findByUsername(String username) {
 //		return userRepository.findById(username);

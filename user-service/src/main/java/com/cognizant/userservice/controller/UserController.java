@@ -30,7 +30,7 @@ public class UserController {
 	public ResponseEntity registerUser(@RequestBody @Valid UserData user)
 	{
 		user.setPassword(UserDetailsUtils.encodePassword(user.getPassword()));
-		user.setUserName(UserDetailsUtils.extractUsername(user.getEmail()));
+		user.setUserName(user.getFirstName()+" "+ user.getLastName());
 		System.out.println(user);
 		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
 		return userService.register(user);
@@ -54,7 +54,7 @@ public class UserController {
 	@Timed(value = "searchUserName.time", description = "Time taken to return searchUserName")
 	public ResponseEntity searchUserName(@RequestParam("userName") String userName) {
 		log.info("Search UserName {}", userName);
-		return userService.searchBasedOnUserName(UserDetailsUtils.extractUsername(userName));
+		return userService.searchBasedOnUserName(UserDetailsUtils.extractFirstName(userName));
 	}
 	/**
 	 * @URL: <a href="http://localhost:8081/statusCheck">...</a>

@@ -13,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import javax.ws.rs.QueryParam;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.cognizant.tweetservice.util.Constants.ROOT_URL;
 import static com.cognizant.tweetservice.util.Constants.CLIENT_URL;
@@ -56,13 +58,13 @@ public class TweetController {
     @GetMapping("/{userName}")
     @Timed(value = "getAllUserTweet.time", description = "Time taken to return getAllUserTweet")
     public ResponseEntity<RequestResponse<List<Tweet>>> getAllUserTweet(@RequestHeader(name = "Authorization") String token,
-                                                                 @PathVariable String userName) {
+                                                                            @PathVariable String userName) {
         if (!authorisationClient.validate(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
         log.info("In {} UserName {} ", "getAllUserTweet", userName);
-        return tweetService.getAllUserTweet();
+        return tweetService.getAllUserTweet(userName);
     }
 
     @PutMapping("/{userName}/update/{id}")

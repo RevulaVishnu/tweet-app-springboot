@@ -18,9 +18,6 @@ public interface UserRepo extends MongoRepository<UserData, Long> {
     @Query("{ email : ?0}")
     Optional<UserData> findById(String emailId);
 
-    @Query("{ emailId : ?0,password: ?1 }")
-    Optional<UserData> findByemailIdAndPassword(String emailId, String password);
-
     @Query("{ email : ?0}")
     Optional<UserData> findByEmailIdName(String userName);
 }
