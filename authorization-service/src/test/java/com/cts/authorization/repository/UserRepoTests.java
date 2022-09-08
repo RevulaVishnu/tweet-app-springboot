@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import com.cts.authorization.model.UserRequest;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +26,43 @@ class UserRepoTests {
 
 	@Autowired
 	private UserRepo userRepo;
+	private UserData validUser;
+	private UserRequest validUserRequest;
+	private UserRequest inValidUserRequest;
+	private UserRequest inValidPasswordRequest;
+	@BeforeEach
+	public void createUser(){
+		validUser = new UserData(
+				"vishnu@gmail.com",
+				"vishnu",
+				"vishnu",
+				"r",
+				"male",
+				"14-9-1999",
+				"9440833421",
+				false
+		);
+		validUserRequest = new UserRequest(
+				"vishnu@gmail.com",
+				"vishnu"
+		);
+		inValidUserRequest = new UserRequest(
+				"vishu@gmail.com",
+				"vishnu"
+		);
 
+		inValidPasswordRequest= new UserRequest(
+				"vishnu@gmail.com",
+				"vishu"
+		);
+	}
 	@Test
 	@DisplayName("This method is responsible to test findById() method when user exists in database")
 	void testFindUserById_userExists() {
 		log.info("START - testFindUserById_userExists()");
-		final String username = "admin1";
-		Optional<UserData> userOptional = userRepo.findById(username);
+		Optional<UserData> userOptional = userRepo.findByEmailIdName(validUserRequest.getUsername());
 		assertTrue(userOptional.isPresent());
-		assertEquals(username, userOptional.get().getEmail());
+		assertEquals(validUserRequest.getUsername(), userOptional.get().getEmail());
 		log.info("END - testFindUserById_userExists()");
 	}
 
@@ -40,8 +70,8 @@ class UserRepoTests {
 	@DisplayName("This method is responsible to test findById() method when user doesn not exists in database")
 	void testFindUserById_userDoesNotExists() {
 		log.info("START - testFindUserById_userDoesNotExists()");
-		final String id = "adminDoesNotExist";
-		Optional<UserData> userOptional = userRepo.findById(id);
+//		final String id = "adminDoesNotExist";
+		Optional<UserData> userOptional = userRepo.findByEmailIdName(inValidUserRequest.getUsername());
 		assertTrue(userOptional.isEmpty());
 		log.info("END - testFindUserById_userDoesNotExists()");
 	}

@@ -35,9 +35,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Optional<UserData> userPresent = userRepo.findByEmailIdName(userName);
         if (userPresent.isEmpty()) {
             System.out.println("In exception");
-            throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, userPresent.toString());
+            throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST, "Email not found");
         }
-        log.info(Constants.EXITING_RESPONSE_LOG, "username", userPresent.isEmpty() ? "Not Present" : "Present");
+        log.info(Constants.EXITING_RESPONSE_LOG, "username", "Present");
         //log.info(Constants.EXITING_RESPONSE_LOG, "login", userPresent);
         return new User(userPresent.get().getEmail(), userPresent.get().getPassword(), new ArrayList<>());
     }

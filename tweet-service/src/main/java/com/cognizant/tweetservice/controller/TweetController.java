@@ -13,12 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import javax.validation.Valid;
-import javax.ws.rs.QueryParam;
 
 import java.util.List;
-import java.util.Optional;
 
 import static com.cognizant.tweetservice.util.Constants.ROOT_URL;
 import static com.cognizant.tweetservice.util.Constants.CLIENT_URL;
@@ -64,7 +61,7 @@ public class TweetController {
         }
 
         log.info("In {} UserName {} ", "getAllUserTweet", userName);
-        return tweetService.getAllUserTweet(userName);
+        return tweetService.getTweetsByUser(userName);
     }
 
     @PutMapping("/{userName}/update/{id}")

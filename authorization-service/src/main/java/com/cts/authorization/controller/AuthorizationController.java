@@ -3,6 +3,7 @@ package com.cts.authorization.controller;
 import javax.validation.Valid;
 
 import com.cts.authorization.model.UserResponseData;
+import com.cts.authorization.service.UserDetailsServiceImpl;
 import com.cts.authorization.service.UserServiceImpl;
 import com.cts.authorization.util.Envelope;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,26 +50,19 @@ public class AuthorizationController {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Value("${userDetails.badCredentialsMessage}")
+	@Value("Invalid Credentials")
 	private String BAD_CREDENTIALS_MESSAGE;
-
-	@Value("${userDetails.disabledAccountMessage}")
-	private String DISABLED_ACCOUNT_MESSAGE;
-	
-	@Value("${userDetails.lockedAccountMessage}")
-	private String LOCKED_ACCOUNT_MESSAGE;
 
 	/**
 	 * @return token on successful login else throws exception handled by
 	 * GlobalExceptionHandler
 	 * @URL: <a href="http://localhost:8081//api/v1.0/login">...</a>
-	 * @Data: [Admin] { "username": "admin1", "password": "adminpass@1234" }
 	 * <p>
 	 * //	 * @param userRequest {username, password}
 	 */
 	@PostMapping("/login")
-//	public ResponseEntity<String> login(@RequestParam("username") String username, @RequestParam("password") String password ) {
-	public Envelope<UserResponseData> login(@RequestBody @Valid UserRequest userRequest) {
+	//	public ResponseEntity<String> login(@RequestParam("username") String username, @RequestParam("password") String password ) {
+	public Envelope<? extends Object> login(@RequestBody @Valid UserRequest userRequest) {
 		boolean isAuthenticated = false;
 		System.out.println("In login controller meth");
 		log.info("START - login()");
@@ -81,10 +75,6 @@ public class AuthorizationController {
 			}
 		} catch (BadCredentialsException e) {
 			throw new InvalidCredentialsException(BAD_CREDENTIALS_MESSAGE);
-		} catch (DisabledException e) {
-			throw new InvalidCredentialsException(DISABLED_ACCOUNT_MESSAGE);
-		} catch (LockedException e) {
-			throw new InvalidCredentialsException(LOCKED_ACCOUNT_MESSAGE);
 		} catch (Exception e){
 			e.printStackTrace();
 		}
@@ -96,9 +86,8 @@ public class AuthorizationController {
 			System.out.println(token);
 			log.info("END - login()");
 			return new Envelope<UserResponseData>(HttpStatus.OK.value(), HttpStatus.OK,userResponseData);
-//			return new ResponseEntity<>(userResponseData, HttpStatus.OK);
 		}else{
-			return new Envelope<UserResponseData>(HttpStatus.FORBIDDEN.value(), HttpStatus.FORBIDDEN,null);
+			return new Envelope<String>(HttpStatus.FORBIDDEN.value(), HttpStatus.FORBIDDEN,"Invalid Credentials");
 		}
 	}
 
@@ -119,7 +108,7 @@ public class AuthorizationController {
 		jwtUtil.isTokenExpiredOrInvalidFormat(token);
 
 		UserDetails user = userDetailsService.loadUserByUsername(jwtUtil.getUsernameFromToken(token));
-		System.out.println(user.toString());
+//		System.out.println(user.toString());
 		if (!user.getUsername().equals("")) {
 			log.info("END - validateJWT()");
 			return new ResponseEntity<>(true, HttpStatus.OK);
