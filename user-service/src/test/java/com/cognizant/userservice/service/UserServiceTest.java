@@ -69,11 +69,6 @@ class UserServiceTest {
     }
 
     @Test
-    void forgotPassword() {
-
-    }
-
-    @Test
     void getAllusers() {
         List<UserData> userDataList = Arrays.asList(testUserData1, testUserData2);
         Mockito.when(userRepo.findAll()).thenReturn(userDataList);
