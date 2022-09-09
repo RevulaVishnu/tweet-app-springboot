@@ -54,7 +54,7 @@ public class UserController {
 	@Timed(value = "searchUserName.time", description = "Time taken to return searchUserName")
 	public ResponseEntity searchUserName(@RequestParam("userName") String userName) {
 		log.info("Search UserName {}", userName);
-		return userService.searchBasedOnUserName(UserDetailsUtils.extractFirstName(userName));
+		return userService.searchByUserName(UserDetailsUtils.extractFirstName(userName));
 	}
 	/**
 	 * @URL: <a href="http://localhost:8081/statusCheck">...</a>
