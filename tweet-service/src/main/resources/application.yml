@@ -8,14 +8,14 @@ spring:
     name: TWEET-SERVICE
     main:
       allow-bean-definition-overriding: true
-    data:
-      mongodb:
-        url: mongodb://localhost/tweet-app
-        database: tweet-app
-        port: 27017
-        host: localhost
-        repositories:
-          enables: true
+  data:
+    mongodb:
+      url: mongodb://localhost/tweet-app
+      database: tweet-app
+      port: 27017
+      host: localhost
+      repositories:
+        enables: true
 
 
 #Eureka client

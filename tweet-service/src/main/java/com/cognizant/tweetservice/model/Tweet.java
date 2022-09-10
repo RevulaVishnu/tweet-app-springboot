@@ -17,7 +17,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Document(collection = "tweets")
+@Document(collection = "tweet")
 public class Tweet {
     @Transient
     public static final String SEQUENCE_NAME = "tweet_sequence";
