@@ -26,10 +26,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-#logging:
-#  level:
-#    '[org.springframework.web]': DEBUG
-#    '[com.cognizant.user-service]': DEBUG
 kafka:
   consumer:
     bootstrap-servers: localhost:9092
@@ -45,10 +41,10 @@ kafka:
 
 logging:
   file:
-    path: './config/logs'
+    path: './logs/logs'
     name: ${logging.file.path}/my-app.log
   level:
-    org.springframework.web: DEBUG
+    org.springframework.web: ERROR
 management:
   endpoints:
     web:

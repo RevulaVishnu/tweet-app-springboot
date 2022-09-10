@@ -39,11 +39,11 @@ kafka:
     batch-size: 100000
 
 logging:
-#  file:
-#    path: './config/logs'
-#    name: ${logging.file.path}/my-app.log
+  file:
+    path: './logs/logs'
+    name: ${logging.file.path}/my-app.log
   level:
-    org.springframework.web: DEBUG
+    org.springframework.web: ERROR
 management:
   endpoints:
     web:
