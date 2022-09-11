@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 
-//@Configuration
+@Configuration
 public class KafkaProducerConfig {
 
-//	@Autowired
-//	private KafkaTemplate<String, String> kafkaTemplate;
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplate;
 
 	public void sendMessage(String message) {
 		log.info(String.format("Message sent-> %s", message));

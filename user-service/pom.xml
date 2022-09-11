@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.cognizant</groupId>
 	<artifactId>user-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>user-service</name>
 	<description>Tweet App using Spring Boot</description>
 	<properties>
@@ -125,6 +125,7 @@
 		</dependencies>
 	</dependencyManagement>
 	<build>
+		<finalName>user-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

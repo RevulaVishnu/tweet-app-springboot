@@ -15,22 +15,23 @@ spring:
     allow-bean-definition-overriding: true
   data:
     mongodb:
-      url: mongodb://localhost/tweet-app
+#      url: mongodb+srv://vishnurevula:vinay1@vishnu-db.rcsucd3.mongodb.net/?retryWrites=true&w=majority
+#      url: mongodb://localhost/tweet-app
       database: tweet-app
       port: 27017
-      host: localhost
+      host: mongo_db
       repositories:
         enables: true
 
 #Eureka client
 eureka:
   instance:
-    hostname: localhost
+    hostname: eureka-server
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
 
 # Error Messages
 jwtUtil:

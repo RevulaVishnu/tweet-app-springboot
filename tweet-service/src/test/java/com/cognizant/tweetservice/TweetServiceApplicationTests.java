@@ -8,6 +8,8 @@ class TweetServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
+		TweetServiceApplication.main(new String[] {});
+
 	}
 
 }

@@ -10,12 +10,14 @@ spring:
       allow-bean-definition-overriding: true
   data:
     mongodb:
-      url: mongodb://localhost/tweet-app
+      #      url: mongodb+srv://vishnurevula:vinay1@vishnu-db.rcsucd3.mongodb.net/?retryWrites=true&w=majority
+      #      url: mongodb://localhost/tweet-app
       database: tweet-app
       port: 27017
-      host: localhost
+      host: mongo_db
       repositories:
         enables: true
+
 
 
 #Eureka client
@@ -24,17 +26,17 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
 
 kafka:
   consumer:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:29092
     group-id: tweetApp
     auto-offset-reset: earliest
     key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   producer:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:29092
     key-serializer: org.apache.kafka.common.serialization.StringSerializer
     value-serializer: org.apache.kafka.common.serialization.StringSerializer
     batch-size: 100000

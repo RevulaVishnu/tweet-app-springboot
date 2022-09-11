@@ -42,6 +42,7 @@ public class TweetService {
                 new Date(System.currentTimeMillis()), null, null);
         tweetRepository.save(tweet);
         log.info(Constants.EXITING_RESPONSE_LOG, "postTweet", tweet);
+        producer.sendMessage("Updated Tweet :: " + tweet.toString().concat(" by ::" + userName));
         return ResponseEntity.ok(new RequestResponse<String>(HttpStatus.OK.value(), HttpStatus.OK, "Saved"));
     }
 
@@ -88,6 +89,7 @@ public class TweetService {
         tweetAndUserValidation(userName, tweetId);
         tweetRepository.deleteById((long) tweetId);
         log.info(Constants.EXITING_RESPONSE_LOG, "deleteTweet", Constants.TWEET_DELETED);
+        producer.sendMessage("Deleted Tweet with Id :: " + String.valueOf(tweetId).concat(" by ::" + userName));
         return ResponseEntity
                 .ok(new RequestResponse<String>(HttpStatus.OK.value(), HttpStatus.OK, Constants.TWEET_DELETED));
     }
@@ -108,6 +110,8 @@ public class TweetService {
         Update update = new Update();
         update.set(Constants.LIKES, tweet.getLikes());
         log.info(Constants.EXITING_RESPONSE_LOG, "likeTweet", tweet.getLikes());
+        producer.sendMessage("Liked Tweet :: " + tweet.toString().concat(" by ::" + userName));
+
         tweet = mongoOperations.findAndModify(query, update, Tweet.class);
         if (tweet == null)
             throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
@@ -144,9 +148,9 @@ public class TweetService {
 
         tweet = mongoOperations.findAndModify(query, update, Tweet.class);
         log.info(Constants.EXITING_RESPONSE_LOG, "replyTweet", tweet);
-        if (tweet == null)
-            throw new TweetAppException(HttpStatus.INTERNAL_SERVER_ERROR.value(), HttpStatus.INTERNAL_SERVER_ERROR,
-                    "Error While replying");
+        assert tweet != null;
+        producer.sendMessage("Replied Tweet :: " + tweet.toString().concat(" by ::" + userName));
+
         return ResponseEntity
                 .ok(new RequestResponse<String>(HttpStatus.OK.value(), HttpStatus.OK, Constants.REPLIED_TO_TWEET));
     }

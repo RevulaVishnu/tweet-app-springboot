@@ -1,0 +1,83 @@
+version: "3"
+services:
+  eureka-server:
+    image: tweet-app/eureka-server
+    restart: always
+    ports:
+      - 8761:8761
+#    networks:
+#      - tweet-network
+
+  api-gateway:
+    image: tweet-app/api-gateway
+    restart: always
+    ports:
+      - 8084:8084
+#    networks:
+#      - tweet-network
+    depends_on:
+      - eureka-server
+
+  auth-service:
+    image: tweet-app/auth-service
+    restart: always
+    ports:
+      - 8081:8081
+#    networks:
+#      - tweet-network
+    depends_on:
+      - api-gateway
+      - mongo_db
+
+  tweet-service:
+    image: tweet-app/tweet-service
+    restart: always
+    ports:
+      - 8082:8082
+#    networks:
+#      - tweet-network
+    depends_on:
+      - api-gateway
+      - auth-service
+      - mongo_db
+
+  user-service:
+    image: tweet-app/user-service
+    restart: always
+    ports:
+      - 8083:8083
+#    networks:
+#      - tweet-network
+    depends_on:
+      - api-gateway
+      - auth-service
+      - mongo_db
+
+  mongo_db:
+    image: "mongo:4.4.3"
+    restart: always
+    ports:
+      - 27017:27017
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+#networks:
+#  -tweet-network:
+#    driver: bridge
