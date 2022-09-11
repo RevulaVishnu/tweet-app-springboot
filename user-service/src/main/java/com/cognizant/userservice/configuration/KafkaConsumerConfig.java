@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 
-//@Generated
+@Generated
 
 @Service
 public class KafkaConsumerConfig {

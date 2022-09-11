@@ -61,6 +61,7 @@ public class UserController {
 	 * @return "OK" if the server and controller is up and running
 	 */
 	@GetMapping(value = "/statusCheck")
+	@Timed(value = "statusCheck.time", description = "Time taken to find status of application")
 	public String statusCheck() {
 		log.info("OK");
 		return "OK";

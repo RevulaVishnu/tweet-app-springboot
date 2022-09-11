@@ -43,7 +43,7 @@ kafka:
 
 logging:
   file:
-    path: './logs/logs'
+    path: './config/logs'
     name: ${logging.file.path}/my-app.log
   level:
     org.springframework.web: ERROR

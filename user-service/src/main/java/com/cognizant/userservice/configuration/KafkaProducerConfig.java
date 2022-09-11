@@ -10,10 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-//@Service
-
+@Service
 @Slf4j
-
 @Configuration
 public class KafkaProducerConfig {
 
@@ -22,7 +20,7 @@ public class KafkaProducerConfig {
 
 	public void sendMessage(String message) {
 		log.info(String.format("Message sent-> %s", message));
-//		this.kafkaTemplate.send(Constants.TOPIC_NAME, Constants.TOPIC_NAME, message);
+		this.kafkaTemplate.send(Constants.TOPIC_NAME, Constants.TOPIC_NAME, message);
 	}
 
 	@Bean

@@ -32,6 +32,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka-server:8761/eureka/
+#      defaultZone: http://eureka-server:8761/eureka/
 
 # Error Messages
 jwtUtil:
@@ -48,6 +49,8 @@ userDetails:
   lockedAccountMessage: You account has been locked, please contact your administrator for more details
   
 logging:
- level:
-    '[org.springframework.web]': DEBUG
-    '[com.cts.processPension]': DEBUG       
+  file:
+    path: './config/logs'
+    name: ${logging.file.path}/my-app.log
+  level:
+    org.springframework.web: ERROR

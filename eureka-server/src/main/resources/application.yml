@@ -1,1 +1,1 @@
-server:  port: 8761spring:  application:    name: EUREKA-SERVEReureka:  client:    register-with-eureka: false    fetch-registry: false
+server:  port: 8761spring:  application:    name: EUREKA-SERVEReureka:  client:    register-with-eureka: false    fetch-registry: falselogging:  file:    path: './config/logs'    name: ${logging.file.path}/my-app.log  level:    org.springframework.web: ERROR
