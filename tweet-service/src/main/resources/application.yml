@@ -45,10 +45,6 @@ management:
       exposure:
         include: "*"
 
-client:
-  post:
-    baseUrl: http://auth-service:8084/api/v.10
-
 # Error Messages
 jwtUtil:
   expiredMessage: Token has been expired

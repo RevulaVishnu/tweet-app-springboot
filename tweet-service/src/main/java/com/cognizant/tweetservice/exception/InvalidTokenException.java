@@ -12,8 +12,8 @@ public class InvalidTokenException extends RuntimeException {
 	private HttpStatus status;
 	private String data;
 	public InvalidTokenException(String message) {
-		this.statusCode=HttpStatus.INTERNAL_SERVER_ERROR.value();
-		this.status=HttpStatus.INTERNAL_SERVER_ERROR;
+		this.statusCode=HttpStatus.UNAUTHORIZED.value();
+		this.status=HttpStatus.UNAUTHORIZED;
 		this.data=message;
 	}
 
