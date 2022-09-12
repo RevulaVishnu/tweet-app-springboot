@@ -16,7 +16,9 @@ spring:
       host: mongo_db
       repositories:
         enables: true
-
+  cloud:
+    config:
+        uri: http://cloud-config:8085
 
 #Eureka client
 eureka:
@@ -45,6 +47,7 @@ logging:
     name: ${logging.file.path}/my-app.log
   level:
     org.springframework.web: ERROR
+
 management:
   endpoints:
     web:

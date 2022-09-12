@@ -22,6 +22,9 @@ spring:
       host: mongo_db
       repositories:
         enables: true
+  cloud:
+    config:
+      uri: http://cloud-config:8085
 
 #Eureka client
 eureka:
