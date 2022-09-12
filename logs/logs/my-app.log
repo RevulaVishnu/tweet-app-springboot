@@ -1576,3 +1576,26 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:991) ~[spring-context-5.3.8.jar:5.3.8]
 
 2022-09-10 16:37:35.568  INFO 17456 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-09-13 02:52:57.695  INFO 13256 --- [main] c.c.c.SpringConfigServerApplication      : Starting SpringConfigServerApplication using Java 11.0.12 on ctsjava724 with PID 13256 (C:\Users\cogjava1728\IdeaProjects\tweet-app-springboot\cloud-config-server\target\classes started by cogjava1728 in C:\Users\cogjava1728\IdeaProjects\tweet-app-springboot)
+2022-09-13 02:52:57.699  INFO 13256 --- [main] c.c.c.SpringConfigServerApplication      : No active profile set, falling back to default profiles: default
+2022-09-13 02:52:59.426  INFO 13256 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ad091ce7-5757-3c20-8fc6-a13cba1ab658
+2022-09-13 02:52:59.883  INFO 13256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2022-09-13 02:52:59.901  INFO 13256 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-13 02:52:59.902  INFO 13256 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-09-13 02:53:00.094  INFO 13256 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-13 02:53:00.095  INFO 13256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2291 ms
+2022-09-13 02:53:03.964  INFO 13256 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2022-09-13 02:53:04.020  INFO 13256 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path ''
+2022-09-13 02:53:04.071  INFO 13256 --- [main] c.c.c.SpringConfigServerApplication      : Started SpringConfigServerApplication in 7.332 seconds (JVM running for 8.145)
+2022-09-13 02:55:47.018  WARN 13256 --- [Thread-2] .c.s.e.MultipleJGitEnvironmentRepository : Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\COGJAV~1\AppData\Local\Temp\config-repo-10607229240009120769\.git\objects\pack\pack-c99c296f5a6f624f555bb3742bbcc20efab60aa0.idx
+2022-09-13 02:55:52.346  INFO 2644 --- [main] c.c.c.SpringConfigServerApplication      : Starting SpringConfigServerApplication using Java 11.0.12 on ctsjava724 with PID 2644 (C:\Users\cogjava1728\IdeaProjects\tweet-app-springboot\cloud-config-server\target\classes started by cogjava1728 in C:\Users\cogjava1728\IdeaProjects\tweet-app-springboot)
+2022-09-13 02:55:52.351  INFO 2644 --- [main] c.c.c.SpringConfigServerApplication      : No active profile set, falling back to default profiles: default
+2022-09-13 02:55:53.953  INFO 2644 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ad091ce7-5757-3c20-8fc6-a13cba1ab658
+2022-09-13 02:55:54.375  INFO 2644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8085 (http)
+2022-09-13 02:55:54.391  INFO 2644 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-13 02:55:54.392  INFO 2644 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2022-09-13 02:55:54.560  INFO 2644 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-13 02:55:54.561  INFO 2644 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2099 ms
+2022-09-13 02:55:58.186  INFO 2644 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2022-09-13 02:55:58.244  INFO 2644 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8085 (http) with context path ''
+2022-09-13 02:55:58.298  INFO 2644 --- [main] c.c.c.SpringConfigServerApplication      : Started SpringConfigServerApplication in 6.767 seconds (JVM running for 7.444)

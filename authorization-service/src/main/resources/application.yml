@@ -2,15 +2,13 @@
 server:
   port: 8081
 
-# Secret Key To Generate Token
-app:
-  secretKey: '[@q2Xg7@T4mOplFu#Ae]'
-  jwtValidityMinutes: 30
-  
 # spring properties
 spring:
   application:
     name: AUTH-SERVICE
+  cloud:
+    config:
+      uri: http://localhost:8085
   main:
     allow-bean-definition-overriding: true
   data:
@@ -22,20 +20,27 @@ spring:
       host: mongo_db
       repositories:
         enables: true
-  cloud:
-    config:
-      uri: http://cloud-config:8085
 
 #Eureka client
 eureka:
   instance:
-    hostname: eureka-server
+    hostname: localhost
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
+##Eureka client
+#eureka:
+#  instance:
+#    hostname: eureka-server
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://eureka-server:8761/eureka/
+#
 # Error Messages
 jwtUtil:
   expiredMessage: Token has been expired
