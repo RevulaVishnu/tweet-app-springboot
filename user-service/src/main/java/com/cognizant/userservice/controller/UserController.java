@@ -30,7 +30,7 @@ public class UserController {
 	public ResponseEntity registerUser(@RequestBody @Valid UserData user)
 	{
 		user.setPassword(UserDetailsUtils.encodePassword(user.getPassword()));
-		user.setUserName(user.getFirstName()+" "+ user.getLastName());
+		user.setUserName(user.getFirstName()+ user.getLastName());
 		System.out.println(user);
 		log.info("Registration for user {} {}", user.getFirstName(), user.getLastName());
 		return userService.register(user);

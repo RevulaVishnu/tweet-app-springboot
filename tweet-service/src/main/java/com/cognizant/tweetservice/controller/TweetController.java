@@ -5,6 +5,7 @@ import com.cognizant.tweetservice.feign.AuthorisationClient;
 import com.cognizant.tweetservice.model.Tweet;
 import com.cognizant.tweetservice.model.TweetRequest;
 import com.cognizant.tweetservice.service.TweetService;
+import com.cognizant.tweetservice.util.JwtUtil;
 import com.cognizant.tweetservice.util.RequestResponse;
 import io.micrometer.core.annotation.Timed;
 import lombok.Generated;
@@ -33,12 +34,19 @@ public class TweetController {
     @Autowired
     AuthorisationClient authorisationClient;
 
+    @Autowired
+    JwtUtil jwtUtil;
+
+    //@Autowired
+    //private UserDetailsService userDetailsService;
+
+
     @PostMapping("/add/{userName}")
-//    @Timed(value = "postTweet.time", description = "Time taken to return postTweet")
+    @Timed(value = "postTweet.time", description = "Time taken to return postTweet")
     public ResponseEntity<RequestResponse<String>> postTweet(@RequestHeader(name = "Authorization") String token,
                                                       @RequestBody @Valid TweetRequest tweet,
                                                       @PathVariable(value = "userName") String userName) {
-        if (!authorisationClient.validate(token)) {
+        if (validateJWT(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
         log.info("In {} UserName {} ", "postTweet", userName);
@@ -56,7 +64,7 @@ public class TweetController {
     @Timed(value = "getAllUserTweet.time", description = "Time taken to return getAllUserTweet")
     public ResponseEntity<RequestResponse<List<Tweet>>> getAllUserTweet(@RequestHeader(name = "Authorization") String token,
                                                                             @PathVariable String userName) {
-        if (!authorisationClient.validate(token)) {
+        if (validateJWT(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
@@ -70,7 +78,7 @@ public class TweetController {
                                                         @PathVariable("userName") String userName,
                                                         @PathVariable("id") int tweetId,
                                                         @RequestBody TweetRequest tweetRequest) {
-        if (!authorisationClient.validate(token)) {
+        if (validateJWT(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
@@ -83,7 +91,7 @@ public class TweetController {
     public ResponseEntity<RequestResponse<String>> deleteTweet(@RequestHeader(name = "Authorization") String token,
                                                         @PathVariable("userName") String userName,
                                                         @PathVariable("id") int tweetId) {
-        if (!authorisationClient.validate(token)) {
+        if (validateJWT(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
@@ -96,7 +104,7 @@ public class TweetController {
     public ResponseEntity<RequestResponse<String>> likeTweet(@RequestHeader(name = "Authorization") String token,
                                                       @PathVariable("userName") String userName,
                                                       @PathVariable("id") int tweetId) {
-        if (!authorisationClient.validate(token)) {
+        if (validateJWT(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
@@ -110,7 +118,7 @@ public class TweetController {
                                                        @PathVariable("userName") String userName,
                                                        @PathVariable("id") int tweetId,
                                                        @RequestBody TweetRequest reply) {
-        if (!authorisationClient.validate(token)) {
+        if (validateJWT(token)) {
             throw new InvalidTokenException("You are not allowed to access this resource");
         }
 
@@ -118,6 +126,22 @@ public class TweetController {
         return tweetService.replyTweet(userName, tweetId, reply.getTweet());
     }
 
+
+    public boolean validateJWT(String token) {
+        log.info("START - validateJWT()");
+
+        // throws custom exception and response if token is invalid
+        //jwtUtil.isTokenExpiredOrInvalidFormat(token);
+
+
+        if (jwtUtil.isTokenExpiredOrInvalidFormat(token)) {
+            log.info("END - validateJWT()");
+            return true;
+        }
+
+        return false;
+
+    }
     /**
      * @URL: <a href="http://localhost:8081/statusCheck">...</a>
      * @return "OK" if the server and controller is up and running

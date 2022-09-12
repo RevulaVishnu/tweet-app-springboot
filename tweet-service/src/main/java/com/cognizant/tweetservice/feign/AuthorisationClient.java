@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 /**
- * Feign client to connect with authorization micro-service for token validation
+ * Feign client to connect with authorization microservice for token validation
  *
  */
-@FeignClient("localhost:8084/api/v1.0")
+@FeignClient(name = "auth-server", url = "${client.post.baseUrl}")
 public interface AuthorisationClient {
 	
 	/**

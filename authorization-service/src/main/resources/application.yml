@@ -25,8 +25,6 @@ spring:
 
 #Eureka client
 eureka:
-  instance:
-    hostname: eureka-server
   client:
     register-with-eureka: true
     fetch-registry: true

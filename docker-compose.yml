@@ -30,7 +30,8 @@ services:
       - mongo_db
 
   tweet-service:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:tweet-service
+    image: tweet-app/tweet-service
+    #image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:tweet-service
     restart: always
     ports:
       - 8082:8082

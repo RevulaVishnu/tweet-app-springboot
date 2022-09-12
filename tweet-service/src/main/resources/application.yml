@@ -2,6 +2,12 @@
 server:
   port: 8082
 
+# Secret Key To Generate Token
+app:
+  secretKey: '[@q2Xg7@T4mOplFu#Ae]'
+  jwtValidityMinutes: 30
+
+
 # spring properties
 spring:
   application:
@@ -18,8 +24,6 @@ spring:
       repositories:
         enables: true
 
-
-
 #Eureka client
 eureka:
   client:
@@ -28,27 +32,33 @@ eureka:
     service-url:
       defaultZone: http://eureka-server:8761/eureka/
 
-kafka:
-  consumer:
-    bootstrap-servers: localhost:29092
-    group-id: tweetApp
-    auto-offset-reset: earliest
-    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  producer:
-    bootstrap-servers: localhost:29092
-    key-serializer: org.apache.kafka.common.serialization.StringSerializer
-    value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    batch-size: 100000
-
 logging:
   file:
     path: './logs/logs'
     name: ${logging.file.path}/my-app.log
   level:
     org.springframework.web: ERROR
+
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
+client:
+  post:
+    baseUrl: http://auth-service:8084/api/v.10
+
+# Error Messages
+jwtUtil:
+  expiredMessage: Token has been expired
+  malformedMessage: Token is in invalid format
+  signatureMessage: Token signature is invalid
+  nullOrEmptyMessage: Token is either null or empty
+  unsupportedMessage: Claims for token is not supported
+
+userDetails:
+  errorMessage: Incorrect Username or Password
+  badCredentialsMessage: Incorrect Username or Password
+  disabledAccountMessage: Your account has been disabled
+  lockedAccountMessage: You account has been locked, please contact your administrator for more details

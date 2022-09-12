@@ -1,6 +1,5 @@
 package com.cognizant.tweetservice.service;
 
-import com.cognizant.tweetservice.configuration.KafkaProducerConfig;
 import com.cognizant.tweetservice.model.Tweet;
 import com.cognizant.tweetservice.model.TweetRequest;
 import com.cognizant.tweetservice.repo.TweetRepo;
@@ -33,8 +32,6 @@ class TweetServiceTest {
     @Mock
     MongoOperations mongoperation;
 
-    @Mock
-    KafkaProducerConfig producer;
 
     private TweetRequest validTweetReq;
     private String username;

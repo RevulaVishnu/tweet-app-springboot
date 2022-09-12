@@ -3,7 +3,6 @@ package com.cognizant.userservice.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.cognizant.userservice.configuration.KafkaProducerConfig;
 import com.cognizant.userservice.exception.TweetAppException;
 import com.cognizant.userservice.model.UserData;
 import com.cognizant.userservice.repo.UserRepo;
@@ -30,8 +29,6 @@ public class UserService {
 	@Autowired
 	MongoOperations mongoOperations;
 
-	@Autowired
-	private KafkaProducerConfig producer;
 
 	public ResponseEntity<RequestResponse<String>> register(UserData user) {
 		log.info(Constants.IN_REQUEST_LOG, "register", user.toString());
@@ -44,7 +41,6 @@ public class UserService {
 		else
 			userRepository.save(user);
 		log.info(Constants.EXITING_RESPONSE_LOG, "register", userRegister);
-		producer.sendMessage("Registered User :: " + user.getUserName());
 		return ResponseEntity.ok(new RequestResponse<>(HttpStatus.OK.value(), HttpStatus.OK, user.getEmail() + " " + userRegister));
 	}
 
@@ -55,7 +51,6 @@ public class UserService {
 			throw new TweetAppException(HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST,
 					Constants.USER_NAME_NOT_PRESENT);
 		}
-		producer.sendMessage("Forgot Password for :: " + userName.concat(" " + password));
 		Query query = new Query();
 		query.addCriteria(Criteria.where(Constants.EMAIL_ID).is(userName));
 		Update update = new Update();

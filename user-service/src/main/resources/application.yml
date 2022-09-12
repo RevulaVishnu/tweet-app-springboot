@@ -26,18 +26,18 @@ eureka:
     service-url:
       defaultZone: http://eureka-server:8761/eureka/
 
-kafka:
-  consumer:
-    bootstrap-servers: localhost:29092
-    group-id: tweetApp
-    auto-offset-reset: earliest
-    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-  producer:
-    bootstrap-servers: localhost:29092
-    key-serializer: org.apache.kafka.common.serialization.StringSerializer
-    value-serializer: org.apache.kafka.common.serialization.StringSerializer
-    batch-size: 100000
+#kafka:
+#  consumer:
+#    bootstrap-servers: localhost:29092
+#    group-id: tweetApp
+#    auto-offset-reset: earliest
+#    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#  producer:
+#    bootstrap-servers: localhost:29092
+#    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    batch-size: 100000
 
 logging:
   file:
