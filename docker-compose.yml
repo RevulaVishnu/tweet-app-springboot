@@ -59,6 +59,16 @@ services:
     ports:
       - 27017:27017
 
+
+  web-client:
+    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:web-client
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - tweet-network
+    depends_on:
+      - api-gateway
 networks:
   tweet-network:
     driver: bridge
