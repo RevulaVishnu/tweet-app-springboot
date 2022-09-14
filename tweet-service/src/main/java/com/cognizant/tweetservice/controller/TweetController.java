@@ -4,6 +4,8 @@ import com.cognizant.tweetservice.exception.InvalidTokenException;
 import com.cognizant.tweetservice.feign.AuthorisationClient;
 import com.cognizant.tweetservice.model.Tweet;
 import com.cognizant.tweetservice.model.TweetRequest;
+import com.cognizant.tweetservice.rabbitmq.ListenerService;
+import com.cognizant.tweetservice.rabbitmq.PublishService;
 import com.cognizant.tweetservice.service.TweetService;
 import com.cognizant.tweetservice.util.RequestResponse;
 import io.micrometer.core.annotation.Timed;
@@ -31,6 +33,17 @@ public class TweetController {
 
     @Autowired
     AuthorisationClient authorisationClient;
+
+    @Autowired
+    PublishService publishService;
+
+    @Autowired
+    ListenerService listenerService;
+
+    public boolean validateToken(String token){
+        publishService.pushMessage(token);
+        return listenerService.isAuthorizationStatus();
+    }
 
     @PostMapping("/add/{userName}")
     @Timed(value = "postTweet.time", description = "Time taken to return postTweet")

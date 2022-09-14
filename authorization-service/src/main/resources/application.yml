@@ -6,11 +6,19 @@ server:
 app:
   secretKey: '[@q2Xg7@T4mOplFu#Ae]'
   jwtValidityMinutes: 30
-  
+
+
+mq:
+  token: 'token'
+  authStatus: 'status'
+
+
 # spring properties
 spring:
   application:
     name: AUTH-SERVICE
+  rabbitmq:
+    host: rabbitmq
   main:
     allow-bean-definition-overriding: true
   data:

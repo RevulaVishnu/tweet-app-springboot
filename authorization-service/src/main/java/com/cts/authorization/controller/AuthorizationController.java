@@ -3,6 +3,9 @@ package com.cts.authorization.controller;
 import javax.validation.Valid;
 
 import com.cts.authorization.model.UserResponseData;
+import com.cts.authorization.rabbitmq.ListenerService;
+import com.cts.authorization.rabbitmq.PublishService;
+import com.cts.authorization.rabbitmq.RabbitMQConfig;
 import com.cts.authorization.service.UserDetailsServiceImpl;
 import com.cts.authorization.service.UserServiceImpl;
 import com.cts.authorization.util.Envelope;
@@ -37,6 +40,16 @@ import lombok.extern.slf4j.Slf4j;
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/api/v1.0")
 public class AuthorizationController {
+
+	@Autowired
+	RabbitMQConfig rabbitMQConfig;
+
+	@Autowired
+	PublishService publishService;
+
+	@Autowired
+	ListenerService listenerService;
+
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -103,7 +116,16 @@ public class AuthorizationController {
 	@GetMapping("/validate")
 	public ResponseEntity<Boolean> validateJWT(@RequestHeader(name = "Authorization") String token) {
 		log.info("START - validateJWT()");
-
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println(listenerService.getTokenValue());
+//		System.out.println(listenerService.getString());
 		// throws custom exception and response if token is invalid
 		jwtUtil.isTokenExpiredOrInvalidFormat(token);
 
@@ -111,6 +133,7 @@ public class AuthorizationController {
 //		System.out.println(user.toString());
 		if (!user.getUsername().equals("")) {
 			log.info("END - validateJWT()");
+			publishService.pushMessage(true);
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 

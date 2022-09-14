@@ -2,8 +2,14 @@
 server:
   port: 8082
 
+mq:
+  token: 'token'
+  authStatus: 'status'
+
 # spring properties
 spring:
+  rabbitmq:
+    host: rabbitmq
   application:
     name: TWEET-SERVICE
     main:

@@ -19,24 +19,27 @@ services:
       - eureka-server
 
   auth-service:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:auth-service
+    image: tweet-app/auth-service
     restart: always
     ports:
       - 8081:8081
     networks:
       - tweet-network
     depends_on:
+      - rabbitmq
       - api-gateway
       - mongo_db
 
   tweet-service:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:tweet-service
+    image: tweet-app/tweet-service
+#    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:tweet-service
     restart: always
     ports:
       - 8082:8082
     networks:
       - tweet-network
     depends_on:
+      - rabbitmq
       - api-gateway
       - auth-service
       - mongo_db
@@ -59,6 +62,12 @@ services:
     ports:
       - 27017:27017
 
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 networks:
   tweet-network:
     driver: bridge
