@@ -1,65 +1,160 @@
-version: "3"
+version: '3.9'
+
 services:
   eureka-server:
+    container_name: eureka-server
     image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:eureka-server
     restart: always
     ports:
       - 8761:8761
     networks:
-      - tweet-network
+      - tweet-app-network
 
   api-gateway:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:api-gateway
+    container_name: api-gateway
+    hostname: api-gateway
+    image: tweet-app:api-gateway
+#    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:api-gateway
     restart: always
     ports:
       - 8084:8084
     networks:
-      - tweet-network
+      - tweet-app-network
     depends_on:
       - eureka-server
 
   auth-service:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:auth-service
+    container_name: auth-service
+    image: tweet-app/auth-service
+#    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:auth-service
     restart: always
     ports:
       - 8081:8081
     networks:
-      - tweet-network
+      - tweet-app-network
     depends_on:
       - api-gateway
       - mongo_db
 
   tweet-service:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:tweet-service
+    container_name: tweet-service
+    image: tweet-app/tweet-service
+#    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:tweet-service
     restart: always
     ports:
       - 8082:8082
     networks:
-      - tweet-network
+      - tweet-app-network
     depends_on:
       - api-gateway
       - auth-service
       - mongo_db
 
   user-service:
-    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:user-service
+    container_name: user-service
+    image: tweet-app/user-service
+#    image: 572327248494.dkr.ecr.us-east-1.amazonaws.com/tweet-app:user-service
     restart: always
     ports:
       - 8083:8083
     networks:
-      - tweet-network
+      - tweet-app-network
     depends_on:
       - api-gateway
       - auth-service
       - mongo_db
 
   mongo_db:
+    hostname: mongo_db
+    container_name: mongo_db
+    networks:
+      - tweet-app-network
     image: "mongo:4.4.3"
     restart: always
     ports:
       - 27017:27017
 
 
+  prometheus:
+    image: prom/prometheus:v2.21.0
+#    network_mode: host
+    container_name: prometheus
+    ports:
+      - 9000:9090
+    networks:
+      - tweet-app-network
+    volumes:
+      - ./config/prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+
+  grafana:
+    image: grafana/grafana:6.7.2
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./config/grafana:/grafana/grafana-enterprise
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - tweet-app-network
+#
+#  Elasticsearch:
+#    image: elasticsearch:7.17.3
+#    container_name: elasticsearch
+#    restart: always
+#    volumes:
+#      - elastic_data:/usr/share/elasticsearch/data/
+#    environment:
+#      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+#      discovery.type: single-node
+#    ports:
+#      - '9200:9200'
+#    networks:
+#      - elk
+#
+#  Logstash:
+#    image: logstash:7.17.0
+#    container_name: logstash
+#    restart: always
+#    volumes:
+#      - ./config :/logstash
+#    command: logstash -f /logstash.conf
+#    depends_on:
+#      - Elasticsearch
+#    ports:
+#      - '9600:9600'
+#    environment:
+#      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    networks:
+#      - elk
+#
+#  Kibana:
+#    image: kibana:7.17.3
+#    container_name: kibana
+#    restart: always
+#    ports:
+#      - '5601:5601'
+#    environment:
+#      - ELASTICSEARCH_URL=http://localhost:9200
+#    depends_on:
+#      - Elasticsearch
+#    networks:
+#      - elk
+volumes:
+  prometheus-data:
+  elastic_data:
+  grafana_data:
+
 networks:
-  tweet-network:
+  tweet-app-network:
+    name: tweet-app-network
     driver: bridge

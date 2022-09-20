@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
  * Feign client to connect with authorization microservice for token validation
  *
  */
-@FeignClient(name = "auth-service", url = "tweet-LoadB-1RVB8HGCA28D3-cdb2a7c7804b5dd7.elb.us-east-1.amazonaws.com:8084")
+@FeignClient(name = "auth-service", url = "auth-service:8083")
+//@FeignClient(name = "auth-service", url = "tweet-LoadB-1RVB8HGCA28D3-cdb2a7c7804b5dd7.elb.us-east-1.amazonaws.com:8084")
 public interface AuthorisationClient {
 	
 	/**
