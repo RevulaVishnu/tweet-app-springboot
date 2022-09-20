@@ -8,6 +8,8 @@ spring:
     name: TWEET-SERVICE
     main:
       allow-bean-definition-overriding: true
+  #  main:
+  #    allow-bean-definition-overriding: true
   data:
     mongodb:
       #      url: mongodb+srv://vishnurevula:vinay1@vishnu-db.rcsucd3.mongodb.net/?retryWrites=true&w=majority
@@ -27,6 +29,19 @@ eureka:
     service-url:
       defaultZone: http://eureka-server:8761/eureka/
 
+#kafka:
+#  consumer:
+#    bootstrap-servers: localhost:29092
+#    group-id: tweetApp
+#    auto-offset-reset: earliest
+#    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#  producer:
+#    bootstrap-servers: localhost:29092
+#    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    batch-size: 100000
+
 logging:
   file:
     path: './logs/logs'
@@ -34,7 +49,16 @@ logging:
   level:
     org.springframework.web: ERROR
 management:
+  endpoint:
+    metrics:
+      enabled: true
+    eureka:
+      enabled :
+    prometheus:
+      enabled: true
+    gateway:
+      enabled: true
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: gateway, prometheus
